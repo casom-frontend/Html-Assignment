@@ -80,6 +80,26 @@ nav a:hover {
   margin-left: 55PX;
 }
 
+.hero-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: #5bbad5;
+  color: darkslategray;
+  transform: translateY(-3px);
+}
+
+.hero-btn:active {
+  transform: scale(0.95);
+  background-color: #e8f7ff;
+  border-color: #5bbad5;
+}
+
+#wisdomOutput {
+  color: white;
+  font-size: 22px;
+  margin-top: 18px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  font-style: italic;
+}
 
 /* ================= INTROTEXT ================= */
 h2 {
@@ -87,14 +107,14 @@ h2 {
   color: darkslategrey;
   text-align:left;
   margin-top: 50px;
-  margin-left: 109px;
+  margin-left: 10px;
 }
 
 p {
   font-size: 20px;
   color: darkslategrey;
   text-align: left;
-  margin-left: 109px;
+  margin-left: 10px;
 }
 
 
@@ -104,7 +124,7 @@ p {
   display: flex;
   gap: 40px;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 20px;
 }
 
@@ -115,6 +135,7 @@ p {
   width: 500px;
   height: 720px;
   padding: 25px;
+  vertical-align: top;
   text-align: center;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   display: flex;
@@ -124,23 +145,40 @@ p {
 /* Bilden i varje kort */
 .sektion img {
   width: 100%;
-  height: 250px;
+  height: 300px;
   object-fit: cover;
   border-radius: 5px;
 }
 
+.sektioner h1{
+  font-family: Inter
+  font-size: 20px;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+
+}
 /* Rubrik i kort */
 .sektion h2 {
-  font-size: 24px;
-  color: darkslategrey;
-  margin-bottom: 10px;
-}
 
+  font-size: 16px;  /* Storleken på texten i rutan */
+  color: whitesmoke;/* Gör texten vit så den syns mot den mörka bakgrunden */
+  background-color: rgba(47, 79, 79, 0.81);/* Själva bakgrunden på rutan (grå färg) */
+  padding: 8px 14px;  /* Ger rutan luft runt texten så den blir tjockare och ser ut som en riktig "badge" */
+  border-radius: 6px; /* Rundar hörnen så rutan blir mjukare och inte kantig */
+  border: 1px solid darkslategrey;  /* En tunn kant runt rutan så den syns tydligare */
+  display: inline-block;  /* Gör att rutan bara blir så stor som texten i den (och inte hela kortets bredd) */
+  margin: 15px 0 15px 0; /* Flyttar rutan lite nedåt från bilden */
+  text-align: left;   /* Gör att texten i rutan är vänsterställd */
+  align-self: flex-start; /* Tvingar rutan att ligga till vänster i kortet även om allt annat är centrerat */
+
+}
 /* Text i kort */
 .sektion p {
   font-size: 20px;
   color: #333;
-  margin-top: auto;
+  vertical-align: top;,left;
+  text-align: left;
 }
 
 /* ========== FOOTER ========== */
@@ -148,7 +186,6 @@ p {
 .main-footer {
   background-color: white;
   padding: 30px;
-  text-align: center;
   margin-top: 80px;
   border-top: 2px solid #ccc;   /* Liten linje för att separera */
   display: flex;                        /* Gör att logga och länkar hamnar i rad */
@@ -157,7 +194,8 @@ p {
 .main-footer p {
   margin: 5px 0;
   color: darkslategrey;
-  font-size: 16px;
+  font-size: 20px;
+  text-align: center;
 }
 
 

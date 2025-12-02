@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Bosses Tassavtryck</title>
   <link rel="stylesheet" href="css/style.css">
   <meta name="description" content="">
 
@@ -20,6 +20,7 @@
 
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
+
 </head>
 
 <body>
@@ -32,7 +33,7 @@
     <a href="#hem">Hem</a>
     <a href="#om-mig">Om Mig</a>
     <a href="#blogg">Blogg</a>
-    <a href="#kontakt">Kontakta Min Sekreterare(Människan)</a>
+    <a href="#kontakt">Kontakta Min Sekreterare(Min matte)</a>
   </nav>
 
 </header>
@@ -43,13 +44,22 @@
 <section class="hero">
 
   <div class="hero-content">
+
     <h1>Välkommen till mitt revir!</h1>
     <p>Tankegångar från en världserövrare på fyra tassar.</p>
-    <button class="hero-btn">Nos här!</button>
+    <button id="noseBtn"
+            class="hero-btn"
+            title="Klicka här för att få dagens visdomsord från Bosse">
+            🐶 Nosa här!
+    </button>
+    <p id="wisdomOutput"></p>
+    <audio id="sniffSound" src="public/frequent-dog-sniffing.mp3"></audio>
   </div>
 
 </section>
 
+<input type="text" id="searchInput" placeholder="Sök bland Bosse-visdomsord...">
+<ul id="searchResults"></ul>
 
 <!-- ================= INTROTEXT ================= -->
 <!-- Enkel text-sektion för att introducera bloggen -->
@@ -63,21 +73,27 @@
 <div class="sektioner">
 
   <div class="sektion">
-    <h2>Min Familj</h2>
-    <img src="img/Min%20familj.jpeg" alt="Min familj">
-    <p>Det här är min familj. Min matte, husse och min syster Saga.</p>
+    <img src="" alt="Hundleksak">
+    <h2>Kritiska Recensioner</h2>
+    <h1>Jag Recenserar: Den Nya Leksaken (3/5 Tuggmotstånd)</h1>
+    <p>En utställd analys av väl tuggmotstånd, pip-potential och överlevnadsförmåga.
+      Den försvann efter 12 minuter. Besvikelse.</p>
+
   </div>
 
   <div class="sektion">
-    <h2>Mitt Dagis</h2>
-    <img src="Hunddagis.jpg" alt="Mitt Dagis">
-    <p>Här är mitt dagis, där jag spenderar min vardag och hänger med mina polare.</p>
+    <img src="" alt="Sovande Hund">
+    <h1>Konsten Att Sova 18 Timmar Om Dagen: En Guide</h1>
+    <h2>Livscoaching</h2>
+    <p>Mina beprövade strategier för maximalt med dräglighet och optimal återhämtning inför nästa matskål.</p>
   </div>
 
   <div class="sektion">
-    <h2>Mina vänner</h2>
-    <img src="Mina vänner.jpeg" alt="Mina vänner">
-    <p>Mina vänner är en viktig del av mitt liv.</p>
+    <img src="" alt="Hund i parken">
+    <h1>Topp 5 Lukter i Parken: Denna Vecka</h1>
+    <h2>Äventyr och repotage</h2>
+    <p>Från betonade ekorrar till den helt unika doften av grillfett, en doftresa du sent ska glömma!
+      Med exklusiv karta över de bästa fläckarna.</p>
   </div>
 
 </div>
@@ -85,9 +101,11 @@
 <!-- ========== FOOTER ========== -->
 <footer class="main-footer">
   <p> 2025 Bosses Tassavtryck. All rättigheter förbehållna.</p>
-  <br>
-  <p>Jag ger mina människor all kredit, mot betalning i leverpastej. Webbplats skapad av Bosses Människa.</p>
+  <p>Jag ger mina människor all kredit, mot betalning i leverpastej. Webbplats skapad av Bosses Matte.</p>
 </footer>
 
+</body>
+
+<script src="js/app.js"></script>
 
  </html>
