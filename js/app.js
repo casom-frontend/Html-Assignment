@@ -42,3 +42,50 @@ closeBubble.addEventListener("click", () => {
   wisdomBubble.classList.remove("open");
   noseBtn.textContent = "Nosa här!";
 });
+
+// ================= HUNDFAKTA: API + EGNA LISTOR =================
+
+// Egna fakta-kategorier
+const localFacts = {
+  cocker: [
+    "Cocker spaniels är kända för sina otroligt uttrycksfulla ögon.",
+    "Bosse hävdar att han kan tre språk: Svenska, Godis och Kyckling.",
+    "Cocker spaniels har mjuka öron som fungerar som naturliga huvudkuddar."
+  ],
+  humor: [
+    "Bosse tror att ekorrar är organiserade småbrottslingar.",
+    "Bosse har doktorerat i soffliggning och snacksstudier.",
+    "Bosse kan höra en ostbit falla i köket – även i sömnen."
+  ]
+};
+
+const factFilter = document.getElementById("factFilter");
+const factText = document.getElementById("factText");
+
+factFilter.addEventListener("change", () => {
+  const value = factFilter.value;
+
+  // Fetch från öppet API (ingen nyckel!)
+  if (value === "api") {
+    fetch("https://dog-api.kinduff.com/api/facts")
+      .then(res => res.json())
+      .then(data => {
+        factText.textContent = data.facts[0];
+      })
+      .catch(() => {
+        factText.textContent = "Kunde inte hämta fakta just nu 🐾";
+      });
+  }
+
+  // Lokala kategorier
+  else if (localFacts[value]) {
+    const facts = localFacts[value];
+    const randomFact = facts[Math.floor(Math.random() * facts.length)];
+    factText.textContent = randomFact;
+  }
+
+  // Startläge
+  else {
+    factText.textContent = "Välj en kategori för att se fakta 🐶";
+  }
+});

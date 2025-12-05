@@ -1,73 +1,70 @@
-/* ================= FÄRG PÅ BAKGRUNDEN ================= */
+/* ================== SIDANS GRUND ================== */
 body {
-  background-color: lightgray;
-  margin: 0;
-  font-family: Inter, sans-serif;
-}
-/* ========== HEADER ========== */
-/* Detta är sidans toppmeny med logotyp och länkar */
-.main-header {
-  display: flex;                        /* Gör att logga och länkar hamnar i rad */
-  justify-content: space-between;        /* Sprider ut logga till vänster och länkar till höger */
-  align-items: center;                   /* Centrerar allt vertikalt */
-  padding: 20px 40px;                    /* Luft runt innehållet */
-  background-color: white;               /* Vit bakgrund */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Lätt skugga under headern */
-  position: sticky;                      /* Gör att headern stannar i toppen när man scrollar */
-  top: 0;
-  z-index: 100;                          /* Ligger ovanpå allt annat */
+  background-color: lightgray;   /* Ljus bakgrundsfärg */
+  margin: 0;                     /* Tar bort standardmarginal */
+  font-family: Inter, sans-serif; /* Typsnitt */
 }
 
-/* Loggan (texten till vänster) */
+
+/* ================== HEADER ================== */
+.main-header {
+  display: flex;                 /* Gör att logga + meny ligger i rad */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;              /* Header följer med när man scrollar */
+  top: 0;
+  z-index: 100;
+}
+
 .logo {
   font-size: 24px;
   font-weight: bold;
   color: darkslategrey;
-  margin: 0;
 }
 
-/* Länkar i navigeringen */
 nav a {
   margin-left: 30px;
-  text-decoration: none;                 /* Tar bort understrykning */
+  text-decoration: none;
   color: darkslategrey;
   font-size: 18px;
 }
 
-/* Hover-effekt när man håller musen över länkarna */
 nav a:hover {
-  color: #42b883;                        /* Glad hundgrön färg */
+  color: #42b883;
 }
 
 
-/* ================= HERO-SEKTION ================= */
-/* Här ligger hero-bilden som bakgrund */
+/* ================== HERO ================== */
 .hero {
   position: relative;
   height: 550px;
-  background-image: url("../Bosse3.jpeg"); /* Din hero bild */
-  background-size:cover;
+  background-image: url("../Bosse3.jpeg");
+  background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;      /* Centrerar texten vertikalt */
-  padding-left: 55px;        /* Flyttar texten inåt från vänster */
+  align-items: center;
+  padding-left: 55px;
 }
 
-/* Texten ovanpå hero-bilden */
 .hero-content h1 {
   font-size: 65px;
   color: white;
-  margin-left: 55PX;
+  margin-left: 55px;
 }
 
 .hero-content p {
   font-size: 22px;
   color: white;
-  margin-left: 55PX;
+  margin-left: 55px;
 }
 
-/* Knappen i hero-sektionen */
+
+/* ================== KNAPP I HERO ================== */
 .hero-btn {
+  position: relative;           /* Popupen ska följa knappen */
   background-color: darkslategrey;
   color: white;
   padding: 30px 55px;
@@ -75,51 +72,124 @@ nav a:hover {
   border-radius: 8px;
   cursor: pointer;
   font-size: 25px;
+  margin-left: 55px;
   margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 55PX;
 }
 
 .hero-btn:hover {
-  background-color: rgba(255, 255, 255, 1);
-  border-color: #5bbad5;
-  color: darkslategray;
   transform: translateY(-3px);
 }
 
 .hero-btn:active {
   transform: scale(0.95);
-  background-color: #e8f7ff;
-  border-color: #5bbad5;
 }
 
-#wisdomOutput {
-  color: white;
-  font-size: 22px;
-  margin-top: 18px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-  font-style: italic;
+
+/* ===========================
+   POPUP – CITAT FRÅN BOSSE
+   =========================== */
+
+/* Hero används som förälder för popupens position */
+.hero {
+  position: relative;
 }
 
-/* ================= INTROTEXT ================= */
-h2 {
+/* Själva popup-rutan */
+.wisdom-bubble {
+  position: ;
+
+  /* Placering av popupen – finjusteras enkelt efter screenshot */
+  top: 230px;                 /* Höjd från toppen av hero */
+  left: 360px;                /* Avstånd åt höger så den hamnar bredvid knappen */
+
+  width: 500px;               /* Avlång ruta */
+  min-height: 60px;           /* Tillräcklig höjd för text */
+
+  background-color: orange;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 10px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+  opacity: 0;                 /* Osynlig innan klick */
+  pointer-events: none;       /* Inte klickbar förrän öppen */
+  transform: translateX(0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  z-index: 5000;              /* Så den alltid syns ovanpå */
+}
+
+/* När popupen öppnas */
+.wisdom-bubble.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(20px);  /* Liten snygg glidning åt höger */
+}
+
+/* X-knappen */
+.bubble-close {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 18px;
+}
+/* ================== INTROTEXT OCH FILTRERING HUNDFAKTA================== */
+.bosses-wrapper{
+   display: flex;
+   gap: 40px;
+   justify-content: center;
+   margin-top: 20px;
+    padding: 20px;
+   }
+.blockleft{
+  background-color: white;
+  border-radius: 8px;
+  width: 1000px;
+  height: 250px;
+  padding: 25px;
+  margin-top: 35px;
+  text-align:left;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+}
+
+.blockleft h2 {
   font-size: 50px;
   color: darkslategrey;
+  margin: 50px 0 25px 25px;
   text-align:left;
-  margin-top: 50px;
-  margin-left: 10px;
 }
 
-p {
+.blockleft p {
   font-size: 20px;
   color: darkslategrey;
-  text-align: left;
-  margin-left: 10px;
+  margin-left: 80px;
+  text-align:left;
+}
+.blockright{
+  background-color: white;
+  border-radius: 8px;
+  width: 500px;
+  height: 250px;
+  padding: 25px;
+  margin-top: 35px;
+  text-align:left;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+}
+.blockright h3{
+  font-size: 25px;
+  color: darkslategrey;
+  margin-left: 80px;
+  text-align:left;
 }
 
-
-/* ================= KORT-SEKTION ================= */
-/* Flexbox som lägger korten i rad */
+/* ================== KORT-SEKTION ================== */
 .sektioner {
   display: flex;
   gap: 40px;
@@ -128,93 +198,142 @@ p {
   padding: 20px;
 }
 
-/* Varje enskilt kort */
 .sektion {
   background-color: white;
   border-radius: 2px;
   width: 500px;
-  height: 720px;
+  height: 600px;
   padding: 25px;
-  vertical-align: top;
-  text-align: center;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  text-align:left;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
 }
 
-/* Bilden i varje kort */
 .sektion img {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  border-radius: 5px;
 }
 
-.sektioner h1{
-  font-family: Inter
-  font-size: 20px;
-  color: black;
-  text-align: left;
-  font-weight: bold;
-
-}
-/* Rubrik i kort */
-.sektion h2 {
-
-  font-size: 16px;  /* Storleken på texten i rutan */
-  color: whitesmoke;/* Gör texten vit så den syns mot den mörka bakgrunden */
-  background-color: rgba(47, 79, 79, 0.81);/* Själva bakgrunden på rutan (grå färg) */
-  padding: 8px 14px;  /* Ger rutan luft runt texten så den blir tjockare och ser ut som en riktig "badge" */
-  border-radius: 6px; /* Rundar hörnen så rutan blir mjukare och inte kantig */
-  border: 1px solid darkslategrey;  /* En tunn kant runt rutan så den syns tydligare */
-  display: inline-block;  /* Gör att rutan bara blir så stor som texten i den (och inte hela kortets bredd) */
-  margin: 15px 0 15px 0; /* Flyttar rutan lite nedåt från bilden */
-  text-align: left;   /* Gör att texten i rutan är vänsterställd */
-  align-self: flex-start; /* Tvingar rutan att ligga till vänster i kortet även om allt annat är centrerat */
-
-}
-/* Text i kort */
 .sektion p {
-  font-size: 20px;
-  color: #333;
-  vertical-align: top;,left;
+  text-align: left;
+  color: darkslategrey;
+  font-size: 16px;
+
+}
+.sektion h1{
+  font-size: 16px;
+  color: darkslategrey;
+  font-weight: bold;
   text-align: left;
 }
+.sektion h2 {
+  font-size: 16px;
+  color: darkslategrey;
+  text-align: left;
 
-/* ========== FOOTER ========== */
-/* Sidans bottensektion med rolig text */
+}
+ /* ===========================
+    TOOLTIP SOM FÖLJER KNAPPEN
+    =========================== */
+
+ .hero-btn {
+   position: relative;        /* gör knappen till "förälder" i positioneringen */
+   overflow: visible;         /* viktig så tooltipen kan sticka ut */
+}
+
+ /* Tooltipen inuti knappen */
+ .nose-tooltip {
+  position: absolute;
+
+   bottom: 100%;              /* placerar tooltipen Ovanför knappen */
+   left: 85%;                 /* mitten av knappen */
+   transform: translateX(-50%) translateY(-30px);  /* centrerar & ger lite avstånd */
+
+   background-color: rgba(245, 245, 245, 0.86);
+   padding: 10px 15px;
+   color: black;
+   border-radius: 5px;
+   font-size: 15px;
+   white-space: nowrap;
+
+   opacity: 0;
+   pointer-events: none;
+   transition: opacity 0.25s ease;
+   z-index: 5000;
+}
+
+ /* Tooltip visas vid hover */
+.hero-btn:hover .nose-tooltip {
+   opacity: 1;
+ }
+/* ========= BOSSE TEXT – FRI UTAN RUTA ========= */
+.bosses-info {
+  max-width: 900px;
+  margin: 60px auto 20px auto;
+  padding: 0 20px;
+}
+
+.bosses-info h2 {
+  font-size: 45px;
+  margin-bottom: 20px;
+  color: darkslategrey;
+}
+
+.bosses-info p {
+  margin-left: 0 !important;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+
+/* ========= LITEN SNYGG API-FILTER BOX ========= */
+.dog-facts {
+  max-width: 900px;
+  margin: 20px auto 60px auto;
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dog-facts h3 {
+  margin-top: 0;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: darkslategrey;
+}
+
+.dog-facts select {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #666;
+  margin-bottom: 20px;
+}
+
+.fact-display {
+  background: #f6f6f6;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.fact-display p {
+  margin: 0 !important;
+  font-size: 18px;
+}
+
+
+/* ================== FOOTER ================== */
 .main-footer {
   background-color: white;
   padding: 30px;
   margin-top: 80px;
-  border-top: 2px solid #ccc;   /* Liten linje för att separera */
-  display: flex;                        /* Gör att logga och länkar hamnar i rad */
-}
-
-.main-footer p {
-  margin: 5px 0;
-  color: darkslategrey;
-  font-size: 20px;
+  border-top: 2px solid #ccc;
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */

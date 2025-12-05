@@ -1,75 +1,98 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="sv">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bosses Tassavtryck</title>
+
+  <!-- Kopplar in CSS-filen -->
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/img/favicon.ico" sizes="any">
-  <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="img/icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
-
 </head>
 
 <body>
 
-<!-- ========== HEADER ========== -->
+<!-- ================= HEADER ================= -->
+<!-- Toppen av sidan med logga och meny -->
 <header class="main-header">
-  <h3 class="logo">🐾 Bosses Tassavtryck</h3>
+  <h3 class="logo"> 🐾 Bosses Tassavtryck</h3>
 
   <nav>
     <a href="#hem">Hem</a>
     <a href="#om-mig">Om Mig</a>
     <a href="#blogg">Blogg</a>
-    <a href="#kontakt">Kontakta Min Sekreterare(Min matte)</a>
+    <a href="#kontakt">Kontakta Min Sekreterare (Min matte)</a>
   </nav>
-
 </header>
 
+
 <!-- ================= HERO-SEKTION ================= -->
-<!-- Detta är den stora toppsektionen med bakgrundsbild och text ovanpå -->
-
 <section class="hero">
-
   <div class="hero-content">
 
     <h1>Välkommen till mitt revir!</h1>
     <p>Tankegångar från en världserövrare på fyra tassar.</p>
-    <button id="noseBtn"
-            class="hero-btn"
-            title="Klicka här för att få dagens visdomsord från Bosse">
-            🐶 Nosa här!
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- KNAPP + TOOLTIP I KNAPPEN -->
+    <button id="noseBtn" class="hero-btn">
+      Nosa här!
+      <span class="nose-tooltip">Klicka här för att få dagens visdomsord från Bosse</span>
     </button>
-    <p id="wisdomOutput"></p>
-    <audio id="sniffSound" src="public/frequent-dog-sniffing.mp3"></audio>
-  </div>
 
+    <!-- POPUP -->
+    <div id="wisdomBubble" class="wisdom-bubble">
+      <span id="closeBubble" class="bubble-close">✖</span>
+      <p id="bubbleText"></p>
+    </div>
+
+    <!-- LJUD -->
+    <audio id="sniffSound" src="public/frequent-dog-sniffing.mp3"></audio>
+
+  </div>
+</section>
+<!--!-- ================= INTRO: BOSSE TEXT ================= -->
+<section class="bosses-info">
+  <h2>Bosses underbara värld!</h2>
+
+  <p>
+    Hej! Jag är Bosse – en cockerspaniel på 5 vårar med starka åsikter om livet,
+    tuggben och ekorrar. Mitt mission? Att sprida klokskap, värme och några
+    välplacerade svansvift genom internet.
+  </p>
+
+  <p>
+    När jag inte jobbar på bloggen hittar du mig oftast sovandes i en perfekt
+    solstrimma eller på äventyr i jakt på mystiskt försvunna strumpor (det är
+    alltid någon som gömmer dem…).
+  </p>
+
+  <p>
+    Min matte säger att jag är charmig, klok och “lite för smart för mitt eget bästa”.
+    Jag föredrar att kalla det naturlig begåvning.
+  </p>
 </section>
 
-<input type="text" id="searchInput" placeholder="Sök bland Bosse-visdomsord...">
-<ul id="searchResults"></ul>
 
-<!-- ================= INTROTEXT ================= -->
-<!-- Enkel text-sektion för att introducera bloggen -->
-<h2>Bosses underbara värld!</h2>
-<p>Följ med mig och min familj i vår vardag.<br>
-  I allt från mina promenader, mina fantastiska måltider, till mitt dagisliv.</p>
+<!-- ================= FILTRERING AV HUNDFAKTA ================= -->
+<section class="dog-facts">
+  <h3>Vill du veta något nytt om oss hundar? 🐾</h3>
 
+  <select id="factFilter">
+    <option value="">Välj kategori…</option>
+    <option value="api">Slumpad hundfakta (API)</option>
+    <option value="cocker">Cocker spaniel-fakta</option>
+    <option value="humor">Humor från Bosse</option>
+  </select>
 
-<!-- ================= KORT-SEKTION (3 kort) ================= -->
-<!-- Varje "kort" är en liten låda med bild och text -->
+  <div class="fact-display">
+    <p id="factText">Här kommer hundfakta att visas. 🐶✨</p>
+  </div>
+</section>
+
+<!-- ================= TRE KORT ================= -->
 <div class="sektioner">
 
   <div class="sektion">
@@ -78,34 +101,33 @@
     <h1>Jag Recenserar: Den Nya Leksaken (3/5 Tuggmotstånd)</h1>
     <p>En utställd analys av väl tuggmotstånd, pip-potential och överlevnadsförmåga.
       Den försvann efter 12 minuter. Besvikelse.</p>
-
   </div>
 
   <div class="sektion">
     <img src="" alt="Sovande Hund">
-    <h1>Konsten Att Sova 18 Timmar Om Dagen: En Guide</h1>
     <h2>Livscoaching</h2>
+    <h1>Konsten Att Sova 18 Timmar Om Dagen: En Guide</h1>
     <p>Mina beprövade strategier för maximalt med dräglighet och optimal återhämtning inför nästa matskål.</p>
   </div>
 
   <div class="sektion">
     <img src="" alt="Hund i parken">
-    <h1>Topp 5 Lukter i Parken: Denna Vecka</h1>
     <h2>Äventyr och repotage</h2>
+    <h1>Topp 5 Lukter i Parken: Denna Vecka</h1>
     <p>Från betonade ekorrar till den helt unika doften av grillfett, en doftresa du sent ska glömma!
       Med exklusiv karta över de bästa fläckarna.</p>
   </div>
 
 </div>
 
-<!-- ========== FOOTER ========== -->
+
+<!-- ================= FOOTER ================= -->
 <footer class="main-footer">
-  <p> 2025 Bosses Tassavtryck. All rättigheter förbehållna.</p>
-  <p>Jag ger mina människor all kredit, mot betalning i leverpastej. Webbplats skapad av Bosses Matte.</p>
+  <p>2025  🐾 Bosses Tassavtryck. Alla rättigheter förbehållna.</p>
+  <p>Webbplats skapad av Bosses Matte (betald i leverpastej).</p>
 </footer>
 
-</body>
-
+<!-- Kopplar in JavaScript-filen -->
 <script src="js/app.js"></script>
-
- </html>
+</body>
+</html>
