@@ -1,12 +1,10 @@
 
-// Hämta elementen
+// ================== BOSSE VISDOM ==================
+
 const sniffSound = document.getElementById("sniffSound");
 const noseBtn = document.getElementById("noseBtn");
-const wisdomBubble = document.getElementById("wisdomBubble");
-const bubbleText = document.getElementById("bubbleText");
-const closeBubble = document.getElementById("closeBubble");
+const bosseMessage = document.getElementById("bosseMessage");
 
-// Lista med citat
 const bosseWisdoms = [
   "Om du inte hittar svaret… ta en tupplur.",
   "Våga nosa på det okända – där gömmer sig godbitarna.",
@@ -15,76 +13,58 @@ const bosseWisdoms = [
   "Nosa långsamt, lev långsamt – stress är för katter.",
   "Var snäll. Och om du inte kan vara snäll, var fluffig.",
   "Alla problem känns mindre efter en bra kli bakom örat.",
-  "Vissa dörrar är stängda av en anledning. Testa köket istället.",
   "Om du inte får uppmärksamhet… lägg dig mitt i vägen.",
-  "Ska det fixas? Ta en boll och tänk på det sen."
+  "Ta inte ansvar för ekorrar. De är hopplösa.",
+  "Allt blir bättre med snacks. Det är vetenskap."
 ];
 
-// När man klickar på knappen
 noseBtn.addEventListener("click", () => {
-
   sniffSound.currentTime = 0;
   sniffSound.play();
 
-  // Slumpa citat och visa det i popupen
   const randomIndex = Math.floor(Math.random() * bosseWisdoms.length);
-  bubbleText.textContent = bosseWisdoms[randomIndex];
+  bosseMessage.textContent = bosseWisdoms[randomIndex];
 
-  // Visa popupen
-  wisdomBubble.classList.add("open");
-
-  // Ändra knappens text
-  noseBtn.textContent = "Sniffa vidare!";
+  bosseMessage.style.display = "block";
 });
 
-// När popupen stängs
-closeBubble.addEventListener("click", () => {
-  wisdomBubble.classList.remove("open");
-  noseBtn.textContent = "Nosa här!";
-});
 
-// ================= HUNDFAKTA: API + EGNA LISTOR =================
-
-// Egna fakta-kategorier
-const localFacts = {
-  cocker: [
-    "Cocker spaniels är kända för sina otroligt uttrycksfulla ögon.",
-    "Bosse hävdar att han kan tre språk: Svenska, Godis och Kyckling.",
-    "Cocker spaniels har mjuka öron som fungerar som naturliga huvudkuddar."
-  ],
-  humor: [
-    "Bosse tror att ekorrar är organiserade småbrottslingar.",
-    "Bosse har doktorerat i soffliggning och snacksstudier.",
-    "Bosse kan höra en ostbit falla i köket – även i sömnen."
-  ]
-};
+// ================== HUNDFAKTA (API + EGNA FAKTA) ==================
 
 const factFilter = document.getElementById("factFilter");
 const factText = document.getElementById("factText");
 
+const localFacts = {
+  cocker: [
+    "Cocker spaniels har otroligt uttrycksfulla ögon.",
+    "Bosse hävdar att han kan tre språk: Svenska, Godis & Kyckling.",
+    "Cocker spaniels har mjuka öron – perfekta kuddar."
+  ],
+  humor: [
+    "Ekorrar? Nej tack, säger Bosse.",
+    "Bosse har doktorerat i soffliggning.",
+    "Bosse kan höra en ostbit falla på 30 meters avstånd."
+  ]
+};
+
 factFilter.addEventListener("change", () => {
   const value = factFilter.value;
 
-  // Fetch från öppet API (ingen nyckel!)
+  // API-fakta
   if (value === "api") {
     fetch("https://dog-api.kinduff.com/api/facts")
       .then(res => res.json())
-      .then(data => {
-        factText.textContent = data.facts[0];
-      })
-      .catch(() => {
-        factText.textContent = "Kunde inte hämta fakta just nu 🐾";
-      });
+      .then(data => factText.textContent = data.facts[0])
+      .catch(() => factText.textContent = "Kunde inte hämta fakta 🐾");
   }
 
-  // Lokala kategorier
+  // Egna kategorier
   else if (localFacts[value]) {
-    const facts = localFacts[value];
-    const randomFact = facts[Math.floor(Math.random() * facts.length)];
+    const randomFact = localFacts[value][Math.floor(Math.random() * localFacts[value].length)];
     factText.textContent = randomFact;
   }
 
-  // Startläge
+  // Default
   else {
     factText.textContent = "Välj en kategori för att se fakta 🐶";
   }

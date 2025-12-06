@@ -1,20 +1,20 @@
 /* ================== SIDANS GRUND ================== */
 body {
-  background-color: lightgray;   /* Ljus bakgrundsfärg */
-  margin: 0;                     /* Tar bort standardmarginal */
-  font-family: Inter, sans-serif; /* Typsnitt */
+  background-color: lightgray;
+  margin: 0;
+  font-family: Inter, sans-serif;
 }
 
 
 /* ================== HEADER ================== */
 .main-header {
-  display: flex;                 /* Gör att logga + meny ligger i rad */
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
   background-color: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: sticky;              /* Header följer med när man scrollar */
+  position: sticky;
   top: 0;
   z-index: 100;
 }
@@ -33,11 +33,11 @@ nav a {
 }
 
 nav a:hover {
-  color: #42b883;
+  color: darkgoldenrod;
 }
 
 
-/* ================== HERO ================== */
+/* ================== HERO-SEKTION ================== */
 .hero {
   position: relative;
   height: 550px;
@@ -46,25 +46,22 @@ nav a:hover {
   background-position: center;
   display: flex;
   align-items: center;
-  padding-left: 55px;
+  padding-left: 75px;
 }
 
 .hero-content h1 {
   font-size: 65px;
   color: white;
-  margin-left: 55px;
 }
 
 .hero-content p {
   font-size: 22px;
   color: white;
-  margin-left: 55px;
 }
 
-
-/* ================== KNAPP I HERO ================== */
+/* KNAPP */
 .hero-btn {
-  position: relative;           /* Popupen ska följa knappen */
+  position: relative;
   background-color: darkslategrey;
   color: white;
   padding: 30px 55px;
@@ -72,141 +69,125 @@ nav a:hover {
   border-radius: 8px;
   cursor: pointer;
   font-size: 25px;
-  margin-left: 55px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .hero-btn:hover {
   transform: translateY(-3px);
 }
 
-.hero-btn:active {
-  transform: scale(0.95);
+/* Tooltip */
+.nose-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 68%;
+  transform: translateX(-50%) translateY(-10px);
+  background: rgba(240,240,240,0.9);
+  color: darkslategrey;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.25s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  width: 250px;                /* Viktigt! */
+  max-width: 500px;           /* Tillåter avlång form */
 }
 
-
-/* ===========================
-   POPUP – CITAT FRÅN BOSSE
-   =========================== */
-
-/* Hero används som förälder för popupens position */
-.hero {
-  position: relative;
-}
-
-/* Själva popup-rutan */
-.wisdom-bubble {
-  position: ;
-
-  /* Placering av popupen – finjusteras enkelt efter screenshot */
-  top: 230px;                 /* Höjd från toppen av hero */
-  left: 360px;                /* Avstånd åt höger så den hamnar bredvid knappen */
-
-  width: 500px;               /* Avlång ruta */
-  min-height: 60px;           /* Tillräcklig höjd för text */
-
-  background-color: orange;
-  border-radius: 8px;
-
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  gap: 10px;
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-
-  opacity: 0;                 /* Osynlig innan klick */
-  pointer-events: none;       /* Inte klickbar förrän öppen */
-  transform: translateX(0);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-
-  z-index: 5000;              /* Så den alltid syns ovanpå */
-}
-
-/* När popupen öppnas */
-.wisdom-bubble.open {
+.hero-btn:hover .nose-tooltip {
   opacity: 1;
-  pointer-events: auto;
-  transform: translateX(20px);  /* Liten snygg glidning åt höger */
 }
 
-/* X-knappen */
-.bubble-close {
-  margin-left: auto;
-  cursor: pointer;
+
+/* ================== BOSSE-VISDOM UNDER KNAPP ================== */
+.bosse-message {
+  margin-top: 20px;
+  background: orange;
+  color: white;
+  padding: 18px 25px;
+  border-radius: 8px;
+  font-size: 22px;
+  display: none;
+  max-width: 600px;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ================== OM BOSSE ================== */
+.bosses-info {
+  max-width: 1720px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.bosses-info h2 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.bosses-info p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+
+/* ======= HORISONELL LINJE  ====== */
+.section-divider {
+  height: 2px;
+  background-color: rgba(128, 128, 128, 0.16);
+  width: 1680px;
+  margin: 40px auto;
+}
+
+
+/* ================== FILTERING & HUNDFAKTA RUTA ================== */
+.dog-facts {
+  max-width: 1670px;
+  margin: 20px auto 60px auto;
+  padding: 25px 30px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dog-facts select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
   font-size: 18px;
 }
-/* ================== INTROTEXT OCH FILTRERING HUNDFAKTA================== */
-.bosses-wrapper{
-   display: flex;
-   gap: 40px;
-   justify-content: center;
-   margin-top: 20px;
-    padding: 20px;
-   }
-.blockleft{
-  background-color: white;
-  border-radius: 8px;
-  width: 1000px;
-  height: 250px;
-  padding: 25px;
-  margin-top: 35px;
-  text-align:left;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+
+.fact-display {
+  background: #f6f6f6;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 15px;
+  font-size: 18px;
 }
 
-.blockleft h2 {
-  font-size: 50px;
-  color: darkslategrey;
-  margin: 50px 0 25px 25px;
-  text-align:left;
-}
 
-.blockleft p {
-  font-size: 20px;
-  color: darkslategrey;
-  margin-left: 80px;
-  text-align:left;
-}
-.blockright{
-  background-color: white;
-  border-radius: 8px;
-  width: 500px;
-  height: 250px;
-  padding: 25px;
-  margin-top: 35px;
-  text-align:left;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
-}
-.blockright h3{
-  font-size: 25px;
-  color: darkslategrey;
-  margin-left: 80px;
-  text-align:left;
-}
+/* ================== TRE KORT ================== */
 
-/* ================== KORT-SEKTION ================== */
+#blogg{
+  max-width: 1720px;
+  margin: 30px auto;
+  font-size: 35px;
+
+
+  }
 .sektioner {
   display: flex;
   gap: 40px;
   justify-content: center;
-  margin-top: 20px;
   padding: 20px;
 }
 
 .sektion {
   background-color: white;
-  border-radius: 2px;
   width: 500px;
   height: 600px;
+  border-radius: 4px;
   padding: 25px;
-  text-align:left;
-  display: flex;
-  flex-direction: column;
   box-shadow: 0 8px 8px rgba(0,0,0,0.1);
 }
 
@@ -215,117 +196,15 @@ nav a:hover {
   height: 300px;
   object-fit: cover;
 }
-
-.sektion p {
-  text-align: left;
-  color: darkslategrey;
-  font-size: 16px;
-
-}
-.sektion h1{
-  font-size: 16px;
-  color: darkslategrey;
-  font-weight: bold;
-  text-align: left;
-}
-.sektion h2 {
-  font-size: 16px;
-  color: darkslategrey;
-  text-align: left;
-
-}
- /* ===========================
-    TOOLTIP SOM FÖLJER KNAPPEN
-    =========================== */
-
- .hero-btn {
-   position: relative;        /* gör knappen till "förälder" i positioneringen */
-   overflow: visible;         /* viktig så tooltipen kan sticka ut */
-}
-
- /* Tooltipen inuti knappen */
- .nose-tooltip {
-  position: absolute;
-
-   bottom: 100%;              /* placerar tooltipen Ovanför knappen */
-   left: 85%;                 /* mitten av knappen */
-   transform: translateX(-50%) translateY(-30px);  /* centrerar & ger lite avstånd */
-
-   background-color: rgba(245, 245, 245, 0.86);
-   padding: 10px 15px;
-   color: black;
-   border-radius: 5px;
-   font-size: 15px;
-   white-space: nowrap;
-
-   opacity: 0;
-   pointer-events: none;
-   transition: opacity 0.25s ease;
-   z-index: 5000;
-}
-
- /* Tooltip visas vid hover */
-.hero-btn:hover .nose-tooltip {
-   opacity: 1;
- }
-/* ========= BOSSE TEXT – FRI UTAN RUTA ========= */
-.bosses-info {
-  max-width: 900px;
-  margin: 60px auto 20px auto;
-  padding: 0 20px;
-}
-
-.bosses-info h2 {
-  font-size: 45px;
-  margin-bottom: 20px;
-  color: darkslategrey;
-}
-
-.bosses-info p {
-  margin-left: 0 !important;
+.section h1{
   font-size: 20px;
-  line-height: 1.6;
 }
-
-
-/* ========= LITEN SNYGG API-FILTER BOX ========= */
-.dog-facts {
-  max-width: 900px;
-  margin: 20px auto 60px auto;
-  background: white;
-  padding: 25px 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.section h2{
+  font-size: 25px;
 }
-
-.dog-facts h3 {
-  margin-top: 0;
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: darkslategrey;
-}
-
-.dog-facts select {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  border-radius: 8px;
-  border: 1px solid #666;
-  margin-bottom: 20px;
-}
-
-.fact-display {
-  background: #f6f6f6;
-  padding: 20px;
-  border-radius: 12px;
-}
-
-.fact-display p {
-  margin: 0 !important;
+.section p{
   font-size: 18px;
 }
-
-
 /* ================== FOOTER ================== */
 .main-footer {
   background-color: white;
@@ -333,6 +212,7 @@ nav a:hover {
   margin-top: 80px;
   border-top: 2px solid #ccc;
   text-align: center;
+  font-size: 18px;
 }
 
 

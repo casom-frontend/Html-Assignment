@@ -13,7 +13,6 @@
 <body>
 
 <!-- ================= HEADER ================= -->
-<!-- Toppen av sidan med logga och meny -->
 <header class="main-header">
   <h3 class="logo"> 🐾 Bosses Tassavtryck</h3>
 
@@ -32,28 +31,24 @@
 
     <h1>Välkommen till mitt revir!</h1>
     <p>Tankegångar från en världserövrare på fyra tassar.</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- KNAPP + TOOLTIP I KNAPPEN -->
+
+    <!-- NOSA KNAPP -->
     <button id="noseBtn" class="hero-btn">
       Nosa här!
-      <span class="nose-tooltip">Klicka här för att få dagens visdomsord från Bosse</span>
+      <span class="nose-tooltip">Klicka för att få dagens visdom från Bosse</span>
     </button>
 
-    <!-- POPUP -->
-    <div id="wisdomBubble" class="wisdom-bubble">
-      <span id="closeBubble" class="bubble-close">✖</span>
-      <p id="bubbleText"></p>
-    </div>
+    <!-- VISDOMSORD -->
+    <div id="bosseMessage" class="bosse-message"></div>
 
-    <!-- LJUD -->
+    <!-- SNIFF LJUD -->
     <audio id="sniffSound" src="public/frequent-dog-sniffing.mp3"></audio>
 
   </div>
 </section>
-<!--!-- ================= INTRO: BOSSE TEXT ================= -->
+
+
+<!-- ================= OM BOSSE ================= -->
 <section class="bosses-info">
   <h2>Bosses underbara värld!</h2>
 
@@ -61,38 +56,47 @@
     Hej! Jag är Bosse – en cockerspaniel på 5 vårar med starka åsikter om livet,
     tuggben och ekorrar. Mitt mission? Att sprida klokskap, värme och några
     välplacerade svansvift genom internet.
-  </p>
-
-  <p>
     När jag inte jobbar på bloggen hittar du mig oftast sovandes i en perfekt
     solstrimma eller på äventyr i jakt på mystiskt försvunna strumpor (det är
     alltid någon som gömmer dem…).
-  </p>
-
-  <p>
     Min matte säger att jag är charmig, klok och “lite för smart för mitt eget bästa”.
     Jag föredrar att kalla det naturlig begåvning.
   </p>
 </section>
 
+<!-- ====== HORISONELL LINJE ====== -->
+<div class="section-divider"></div>
 
-<!-- ================= FILTRERING AV HUNDFAKTA ================= -->
+<!-- ================= FILTRERING & HUNDFAKTA RUTA ================= -->
+
+<h1 id="fakta">Hundfakta</h1>
+
 <section class="dog-facts">
-  <h3>Vill du veta något nytt om oss hundar? 🐾</h3>
+
+  <h3>Vill du veta något nytt mer om oss hundar eller mig?</h3>
 
   <select id="factFilter">
     <option value="">Välj kategori…</option>
-    <option value="api">Slumpad hundfakta (API)</option>
-    <option value="cocker">Cocker spaniel-fakta</option>
-    <option value="humor">Humor från Bosse</option>
+    <option value="api">Hundfakta</option>
+    <option value="cocker">Cockerspaniel fakta</option>
+    <option value="humor">Bosse fakta</option>
   </select>
 
   <div class="fact-display">
-    <p id="factText">Här kommer hundfakta att visas. 🐶✨</p>
+    <p id="factText">Här kommer hundfakta att visas.</p>
   </div>
+
 </section>
 
+
+<!-- ====== HORISONELL LINJE ====== -->
+<div class="section-divider"></div>
+
 <!-- ================= TRE KORT ================= -->
+<section class="blogginlägg">
+
+<h1 id="blogg">Blogginlägg</h1>
+
 <div class="sektioner">
 
   <div class="sektion">
@@ -119,15 +123,15 @@
   </div>
 
 </div>
-
+</section>
 
 <!-- ================= FOOTER ================= -->
 <footer class="main-footer">
-  <p>2025  🐾 Bosses Tassavtryck. Alla rättigheter förbehållna.</p>
-  <p>Webbplats skapad av Bosses Matte (betald i leverpastej).</p>
+  <p>@2025  🐾 Bosses Tassavtryck. Alla rättigheter förbehållna.Webbplats skapad av Bosses Matte (betald i leverpastej).</p>
 </footer>
 
 <!-- Kopplar in JavaScript-filen -->
 <script src="js/app.js"></script>
+
 </body>
 </html>
