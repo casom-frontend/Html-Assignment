@@ -1,6 +1,6 @@
 /* ================== SIDANS GRUND ================== */
 body {
-  background-color: lightgray;
+  background-color: rgba(211, 211, 211, 0.5);
   margin: 0;
   font-family: Inter, sans-serif;
 }
@@ -59,6 +59,11 @@ nav a:hover {
   color: white;
 }
 
+.hero-content {
+  position: relative;
+}
+
+
 /* KNAPP */
 .hero-btn {
   position: relative;
@@ -69,11 +74,11 @@ nav a:hover {
   border-radius: 8px;
   cursor: pointer;
   font-size: 25px;
-  margin-top: 20px;
+  margin-top: 70px;
 }
 
 .hero-btn:hover {
-  transform: translateY(-3px);
+ transform: translateY(-3px);
 }
 
 /* Tooltip */
@@ -90,27 +95,88 @@ nav a:hover {
   opacity: 0;
   transition: opacity 0.25s;
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-  width: 250px;                /* Viktigt! */
+  width: 250px;
   max-width: 500px;           /* Tillåter avlång form */
 }
 
 .hero-btn:hover .nose-tooltip {
   opacity: 1;
 }
-
-
-/* ================== BOSSE-VISDOM UNDER KNAPP ================== */
-.bosse-message {
-  margin-top: 20px;
-  background: orange;
+/* Stäng-kryss i visdomsrutan */
+.close-msg {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  font-weight: bold;
   color: white;
-  padding: 18px 25px;
-  border-radius: 8px;
-  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.close-msg:hover {
+  opacity: 1;
+}
+
+/* ================== BOSSE-VISDOM BREDVID KNAPP ================== */
+ /* Container runt knappen och bubblan */
+ .nose-container {
+   position: relative;
+   display: inline-block; /* Allt håller ihop */
+ }
+
+ /* Själva pratbubblan */
+.bosse-message {
   display: none;
-  max-width: 600px;
+  position: absolute;
+
+  top: calc(100% + 12px);  /* under knappen */
+  left: 0;                 /* linje med knappen */
+
+  width: 640px;
+  min-height: 10px;
+
+  background: #ffa726;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-size: 20px;
   line-height: 1.4;
+
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 999;
+ }
+
+/*texten inne i pratbubblan*/
+.bosse-message p {
+  text-align: center;
+  font-family: Inter;
+}
+
+/*citat tecken*/
+.bosse-message p::before {
+  content: "“";
+  font-size: 26px;
+  margin-right: 4px;
+}
+
+.bosse-message p::after {
+  content: "”";
+  font-size: 26px;
+  margin-left: 4px;
+}
+
+/* svansen */
+.bosse-message::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 25px; /* pekar upp mot knappen */
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid #ffa726;
 }
 
 /* ================== OM BOSSE ================== */
@@ -121,13 +187,16 @@ nav a:hover {
 }
 
 .bosses-info h2 {
-  font-size: 45px;
+  font-size: 35px;
   margin-bottom: 20px;
+  color: darkslategrey;
+
 }
 
 .bosses-info p {
   font-size: 20px;
-  line-height: 1.6;
+  line-height: 1.5;
+
 }
 
 
@@ -135,46 +204,93 @@ nav a:hover {
 .section-divider {
   height: 2px;
   background-color: rgba(128, 128, 128, 0.16);
-  width: 1680px;
+  width: 1729px;
   margin: 40px auto;
 }
 
 
-/* ================== FILTERING & HUNDFAKTA RUTA ================== */
-.dog-facts {
-  max-width: 1670px;
-  margin: 20px auto 60px auto;
-  padding: 25px 30px;
-  background: white;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.dog-facts select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
+/* ================== HUNDFAKTA ================== */
+.hundfakta-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
   font-size: 18px;
+  color: #333;
+}
+/* ---- Yttre layout / placerar sektionen på sidan ---- */
+.hundfakta-section {
+  max-width: 1729px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-.fact-display {
-  background: #f6f6f6;
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 15px;
-  font-size: 18px;
+
+/* ---- Rubriken "Hundfakta" ovanför boxen ---- */
+.hundfakta-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: darkslategrey;
+  margin-bottom: 35px;
 }
 
 
-/* ================== TRE KORT ================== */
+/* ---- Själva vita boxen (kortet med filter + fakta) ---- */
+.hundfakta-box {
+  background: #ffffff;
+  padding: 60px;
+  border-radius: 4px;    /* matchar knappar och sidopanel */
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  border: 1px solid #e5e5e5;
+}
 
-#blogg{
+
+/* ---- Beskrivande text ovanför dropdown ---- */
+.hundfakta-label {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+/* ---- Dropdown-fältet (select) ---- */
+.hundfakta-select {
+
+  width: 98%;
+  box-sizing: border-box;         /* padding ingår i totalbredden */
+  padding: 14px 18px;             /* NORMAL höjd – ser modern ut */
+  border-radius: 8px;             /* samma rundning som boxen */
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 17px;                /* större och luftigare text */
+  appearance: auto;               /* visar pilen */
+  margin-bottom: 10px;            /* avstånd till resultat-rutan */
+
+}
+
+
+/* ---- Rutan där hundfakta-text visas ---- */
+.hundfakta-result {
+  padding: 18px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  border: 1px solid #e2e2e2;
+  width: 98%;
+  margin-top: 10px;
+}
+
+/* ================== BLOGGKORT ================== */
+#blogg {
   max-width: 1720px;
-  margin: 30px auto;
-  font-size: 35px;
+  margin: 20px auto;
+  font-size: 28px;
+  color: darkslategrey;
+}
 
-
-  }
 .sektioner {
   display: flex;
   gap: 40px;
@@ -185,10 +301,23 @@ nav a:hover {
 .sektion {
   background-color: white;
   width: 500px;
-  height: 600px;
-  border-radius: 4px;
+  height: 550px;
+  border-radius: 8px;              /* uppdaterad */
   padding: 25px;
   box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;      /* tillagd – behövs för smooth hover */
+  cursor: pointer;                 /* visar att kortet är klickbart */
+}
+
+/* ---- Hover-effekt ---- */
+.sektion:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 18px rgba(0,0,0,0.2);
+
+}
+.sektion:hover h2 {
+  background-color: #264b4b;  /* lite mörkare än knappen */
+  cursor: pointer;
 }
 
 .sektion img {
@@ -196,24 +325,158 @@ nav a:hover {
   height: 300px;
   object-fit: cover;
 }
-.section h1{
-  font-size: 20px;
+
+.sektion h2 {
+ display: inline-block;        /* gör att bakgrunden formar sig runt texten */
+ background-color:darkslategrey;
+ color: white;
+ padding: 10px 16px;           /* samma känsla som knappen – men mindre */
+ border-radius: 6px;           /* matchar knappens rundning */
+ font-size: 18px;
+  font-weight: normal;
 }
-.section h2{
-  font-size: 25px;
-}
-.section p{
+
+.sektion h3 {
   font-size: 18px;
+  color: darkslategrey;
 }
+
+.sektion p {
+  font-size: 17px;
+  line-height: 1.4;
+  color: #333;
+ }
+/* ========== SIDOPANEL ========== */
+
+.friendpanel {
+  position: fixed;
+  top: 50%;
+  right: -350px; /* gömd position */
+  transform: translateY(-50%);
+  width: 320px;
+  background: white;
+  padding: 25px;
+  border-radius: 18px 0 0 18px;
+  box-shadow: -4px 0 18px rgba(0,0,0,0.2);
+  transition: right 0.35s ease;
+  z-index: 9999;
+}
+
+.friendpanel.open {
+  right: 0; /* panel visas */
+}
+
+.friendpanel h3 {
+  margin-top: 0;
+  color: darkslategrey;
+  font-size: 22px;
+  text-align: center;
+}
+
+.friendpanel p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.friendpanel-btn {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding: 25px 15px;
+  background: #ffa726;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.friendpanel-btn:hover {
+  background: #ff8c00;
+}
+
+/* Toggle-knappen – lilla ikonen */
+.friendpanel-toggle {
+
+  position: fixed;
+  top: 50%;
+  right: -60px; /* gör så knappen sticker ut men inte klipps */
+
+  transform: translateY(-50%) rotate(-90deg);
+
+  background: darkslategrey;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 18px 18px 0 0;
+  cursor: pointer;
+  z-index: 9999;
+
+  font-size: 20px;
+  font-weight: 400;
+  white-space: nowrap; /* viktig! gör att texten inte bryts */
+
+}
+
+.friendpanel-toggle:hover {
+  background: #2f5855;
+}
+
+ /* x-stägning kanppen */
+.friendpanel-close {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+  color: darkslategrey;   /* matchar panelens färger */
+  opacity: 0.85;          /* samma look som citat-bubblan */
+  transition: opacity 0.2s ease;
+
 /* ================== FOOTER ================== */
 .main-footer {
-  background-color: white;
-  padding: 30px;
-  margin-top: 80px;
-  border-top: 2px solid #ccc;
-  text-align: center;
-  font-size: 18px;
+
+ width: 100%;                 /* gör den fullbredd */
+ background-color: white;
+ padding: 30px;
+ margin-top: 80px;
+ border-top: 2px solid #ccc;
+ text-align: center;
+ font-size: 18px;
+ box-sizing: border-box;      /* viktigt för att paddingen inte expanderar */
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */

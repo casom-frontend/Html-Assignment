@@ -27,26 +27,34 @@
 
 <!-- ================= HERO-SEKTION ================= -->
 <section class="hero">
+
   <div class="hero-content">
 
+    <!-- TEXT -->
     <h1>Välkommen till mitt revir!</h1>
     <p>Tankegångar från en världserövrare på fyra tassar.</p>
 
-    <!-- NOSA KNAPP -->
-    <button id="noseBtn" class="hero-btn">
-      Nosa här!
-      <span class="nose-tooltip">Klicka för att få dagens visdom från Bosse</span>
-    </button>
+    <!-- NOSA KNAPP + PRATBUBBLA -->
+    <div class="nose-container">
 
-    <!-- VISDOMSORD -->
-    <div id="bosseMessage" class="bosse-message"></div>
+      <button id="noseBtn" class="hero-btn">
+        Nosa här!
+        <span class="nose-tooltip">Klicka för att få dagens visdom från Bosse</span>
+      </button>
+
+      <div id="bosseMessage" class="bosse-message">
+        <span id="closeBosseMsg" class="close-msg">×</span>
+        <p id="wisdomText"></p>
+      </div>
+
+    </div>
 
     <!-- SNIFF LJUD -->
     <audio id="sniffSound" src="public/frequent-dog-sniffing.mp3"></audio>
 
   </div>
-</section>
 
+</section>
 
 <!-- ================= OM BOSSE ================= -->
 <section class="bosses-info">
@@ -67,63 +75,101 @@
 <!-- ====== HORISONELL LINJE ====== -->
 <div class="section-divider"></div>
 
-<!-- ================= FILTRERING & HUNDFAKTA RUTA ================= -->
+<!-- ================= HUNDFAKTA================= -->
 
-<h1 id="fakta">Hundfakta</h1>
+<section class="hundfakta-section">
 
-<section class="dog-facts">
+  <h2 class="hundfakta-heading">Hundfakta</h2>
 
-  <h3>Vill du veta något nytt mer om oss hundar eller mig?</h3>
+  <div class="hundfakta-box">
 
-  <select id="factFilter">
-    <option value="">Välj kategori…</option>
-    <option value="api">Hundfakta</option>
-    <option value="cocker">Cockerspaniel fakta</option>
-    <option value="humor">Bosse fakta</option>
-  </select>
+    <label for="factFilter" class="hundfakta-label">
+      Vill du veta något nytt mer om oss hundar eller mig?
+      <br>
+      <br>
+    </label>
 
-  <div class="fact-display">
-    <p id="factText">Här kommer hundfakta att visas.</p>
+    <select id="factFilter" class="hundfakta-select">
+      <option value="">Välj kategori...</option>
+      <option value="api">Hundfakta</option>
+      <option value="cocker">Cockerspaniel fakta</option>
+      <option value="humor">Bosse fakta</option>
+    </select>
+
+    <div id="factOutput" class="hundfakta-result">
+      Här kommer hundfakta att visas.
+    </div>
+
   </div>
 
 </section>
-
 
 <!-- ====== HORISONELL LINJE ====== -->
 <div class="section-divider"></div>
 
-<!-- ================= TRE KORT ================= -->
+<!-- ================= BLOGGKORT ================= -->
 <section class="blogginlägg">
 
-<h1 id="blogg">Blogginlägg</h1>
+<h2 id="blogg">Blogginlägg</h2>
 
 <div class="sektioner">
 
   <div class="sektion">
-    <img src="" alt="Hundleksak">
+    <img src="/img/leksak%202.jpeg" alt="Hundleksak">
+    <br>
+    <br>
     <h2>Kritiska Recensioner</h2>
-    <h1>Jag Recenserar: Den Nya Leksaken (3/5 Tuggmotstånd)</h1>
-    <p>En utställd analys av väl tuggmotstånd, pip-potential och överlevnadsförmåga.
-      Den försvann efter 12 minuter. Besvikelse.</p>
+    <br>
+    <h3>Jag Recenserar: Den Nya Leksaken (3/5 Tuggmotstånd)</h3>
+    <p>Leksak levererades till testanläggningen (vardagsrumsgolvet) med löften om "långvarig underhållning".
+     Efter en rigorös överlevnadsanalys, konstaterar jag att den försvann efter 12 minuter. Besvikelse...</p>
   </div>
 
   <div class="sektion">
-    <img src="" alt="Sovande Hund">
+    <img src="/img/Bosse%20sover.jpeg" alt="Sovande Hund">
+    <br>
+    <br>
     <h2>Livscoaching</h2>
-    <h1>Konsten Att Sova 18 Timmar Om Dagen: En Guide</h1>
-    <p>Mina beprövade strategier för maximalt med dräglighet och optimal återhämtning inför nästa matskål.</p>
+    <br>
+    <h3>Konsten Att Sova 18 Timmar Om Dagen: En Guide</h3>
+    <p>Att uppnå 18 timmars daglig vila är inte bara en dröm; det är en livsstil.
+      Det handlar om att maximera njutningen, optimera återhämtningen och strategiskt positionera sig inför nästa matskål...
+     </p>
+
   </div>
 
   <div class="sektion">
-    <img src="" alt="Hund i parken">
+    <img src="/img/Bosse%20i%20parken.jpeg" alt="Hund i parken">
+    <br>
+    <br>
     <h2>Äventyr och repotage</h2>
-    <h1>Topp 5 Lukter i Parken: Denna Vecka</h1>
+    <br>
+    <h3>Topp 5 Lukter i Parken: Denna Vecka</h3>
     <p>Från betonade ekorrar till den helt unika doften av grillfett, en doftresa du sent ska glömma!
-      Med exklusiv karta över de bästa fläckarna.</p>
+      Med en exklusiv karta över de bästa fläckarna tar jag med er på en resa du sent kommer att glömma....</p>
   </div>
 
 </div>
 </section>
+
+<!-- ========== SIDOPANEL: BOSSES VÄNNER (TVÅ RUM & KÖK) ========== -->
+<div class="friendpanel-toggle"> 🐾 Adoptera en vän</div>
+
+<div class="friendpanel">
+  <button class="friendpanel-close">×</button>
+
+  <h3>Mina vänner söker <br> två rum & kök ❤ </h3>
+
+  <p>
+    Alla hundar har inte haft lika mycket tur som jag.
+    På Hundstallet väntar mina kompisar på sin egen människoflock.
+    Har du en soffa, ett hjärta och lite leverpastej över?
+  </p>
+
+  <a href="https://hundstallet.se" target="_blank" class="friendpanel-btn">
+    Besök Hundstallet
+  </a>
+</div>
 
 <!-- ================= FOOTER ================= -->
 <footer class="main-footer">
