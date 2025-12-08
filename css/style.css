@@ -1,4 +1,5 @@
 /* ================== SIDANS GRUND ================== */
+
 body {
   background-color: rgba(211, 211, 211, 0.5);
   margin: 0;
@@ -7,6 +8,7 @@ body {
 
 
 /* ================== HEADER ================== */
+
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -36,8 +38,8 @@ nav a:hover {
   color: darkgoldenrod;
 }
 
-
 /* ================== HERO-SEKTION ================== */
+
 .hero {
   position: relative;
   height: 550px;
@@ -55,7 +57,7 @@ nav a:hover {
 }
 
 .hero-content p {
-  font-size: 22px;
+  font-size: 26px;
   color: white;
 }
 
@@ -63,8 +65,8 @@ nav a:hover {
   position: relative;
 }
 
+/* Nos knappen */
 
-/* KNAPP */
 .hero-btn {
   position: relative;
   background-color: darkslategrey;
@@ -82,13 +84,14 @@ nav a:hover {
 }
 
 /* Tooltip */
+
 .nose-tooltip {
   position: absolute;
   bottom: 100%;
   left: 68%;
   transform: translateX(-50%) translateY(-10px);
   background: rgba(240,240,240,0.9);
-  color: darkslategrey;
+  color: #444;
   padding: 12px 18px;
   border-radius: 6px;
   font-size: 15px;
@@ -102,7 +105,9 @@ nav a:hover {
 .hero-btn:hover .nose-tooltip {
   opacity: 1;
 }
+
 /* Stäng-kryss i visdomsrutan */
+
 .close-msg {
   position: absolute;
   top: 8px;
@@ -121,6 +126,7 @@ nav a:hover {
 }
 
 /* ================== BOSSE-VISDOM BREDVID KNAPP ================== */
+
  /* Container runt knappen och bubblan */
  .nose-container {
    position: relative;
@@ -131,20 +137,16 @@ nav a:hover {
 .bosse-message {
   display: none;
   position: absolute;
-
-  top: calc(100% + 12px);  /* under knappen */
-  left: 0;                 /* linje med knappen */
-
-  width: 640px;
+  top: calc(100% + 12px);  /* hamna under knappen */
+  left: 0;                 /* I linje med knappen */
+  width: 740px;
   min-height: 10px;
-
   background: #ffa726;
   color: white;
-  padding: 15px 15px;
+  padding: 8px 15px;
   border-radius: 10px;
-  font-size: 20px;
-  line-height: 1.4;
-
+  font-size: 16px;
+  line-height: 1.2;
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   z-index: 999;
  }
@@ -152,19 +154,19 @@ nav a:hover {
 /*texten inne i pratbubblan*/
 .bosse-message p {
   text-align: center;
-  font-family: Inter;
+
 }
 
 /*citat tecken*/
 .bosse-message p::before {
   content: "“";
-  font-size: 26px;
+  font-size: 22px;
   margin-right: 4px;
 }
 
 .bosse-message p::after {
   content: "”";
-  font-size: 26px;
+  font-size: 22px;
   margin-left: 4px;
 }
 
@@ -195,8 +197,24 @@ nav a:hover {
 
 .bosses-info p {
   font-size: 20px;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #444;
 
+}
+.read-more-info {
+  color: darkslategrey;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 5px;
+  display: inline-block;      /* gör att hover känns naturlig */
+  letter-spacing: 0.3px;      /* lite elegantare */
+  transition: color 0.2s ease;
+}
+
+.read-more-info:hover {
+  color: darkgoldenrod;        /* samma ton som din hover i menyn */
+  text-decoration: underline;  /* ännu tydligare att det är klickbart */
 }
 
 
@@ -204,20 +222,14 @@ nav a:hover {
 .section-divider {
   height: 2px;
   background-color: rgba(128, 128, 128, 0.16);
-  width: 1729px;
+  width: 1720px;
   margin: 40px auto;
 }
 
 
 /* ================== HUNDFAKTA ================== */
-.hundfakta-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 12px;
-  font-size: 18px;
-  color: #333;
-}
-/* ---- Yttre layout / placerar sektionen på sidan ---- */
+
+/* Yttre layout / placerar sektionen på sidan  */
 .hundfakta-section {
   max-width: 1729px;
   margin: 40px auto;
@@ -225,7 +237,7 @@ nav a:hover {
 }
 
 
-/* ---- Rubriken "Hundfakta" ovanför boxen ---- */
+/* Rubriken "Hundfakta" ovanför boxen  */
 .hundfakta-heading {
   font-size: 28px;
   font-weight: 700;
@@ -234,7 +246,7 @@ nav a:hover {
 }
 
 
-/* ---- Själva vita boxen (kortet med filter + fakta) ---- */
+/*  Själva vita boxen (kortet med filter + fakta)  */
 .hundfakta-box {
   background: #ffffff;
   padding: 60px;
@@ -244,20 +256,20 @@ nav a:hover {
 }
 
 
-/* ---- Beskrivande text ovanför dropdown ---- */
+/* Beskrivande text ovanför dropdown  */
 .hundfakta-label {
   display: block;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #333;
+  color: #444;
 }
 
 
-/* ---- Dropdown-fältet (select) ---- */
-.hundfakta-select {
+/* Dropdown-fältet (select) */
 
-  width: 98%;
+.hundfakta-select {
+  width: 100%;
   box-sizing: border-box;         /* padding ingår i totalbredden */
   padding: 14px 18px;             /* NORMAL höjd – ser modern ut */
   border-radius: 8px;             /* samma rundning som boxen */
@@ -266,24 +278,29 @@ nav a:hover {
   font-size: 17px;                /* större och luftigare text */
   appearance: auto;               /* visar pilen */
   margin-bottom: 10px;            /* avstånd till resultat-rutan */
-
+  color: #444;
 }
 
 
-/* ---- Rutan där hundfakta-text visas ---- */
+/* Rutan där hundfakta-text visas*/
+
 .hundfakta-result {
-  padding: 18px;
+  padding: 18px 22px;
   background: #f8f8f8;
   border-radius: 8px;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
   border: 1px solid #e2e2e2;
-  width: 98%;
-  margin-top: 10px;
+  font-size: 20px;        /* samma som citatbubblan */
+  font-weight: 400;       /* tunnare – ser nätt ut */
+  line-height: 1.4;       /* samma luft som pratbubblan */
+  color: darkslategrey;
+  text-align: center;     /* centrera, som bubblan */
+  width: 100%;              /* var 98% – nu blir den exakt lika lång som select */
+  box-sizing: border-box;
+  margin-top: 10px;         /* centreras automatiskt nu */
 }
 
 /* ================== BLOGGKORT ================== */
+
 #blogg {
   max-width: 1720px;
   margin: 20px auto;
@@ -301,20 +318,21 @@ nav a:hover {
 .sektion {
   background-color: white;
   width: 500px;
-  height: 550px;
-  border-radius: 8px;              /* uppdaterad */
+  height: 600px;
+  border-radius: 8px;
   padding: 25px;
   box-shadow: 0 8px 8px rgba(0,0,0,0.1);
-  transition: all 0.25s ease;      /* tillagd – behövs för smooth hover */
+  transition: all 0.25s ease;      /* behövs för smooth hover */
   cursor: pointer;                 /* visar att kortet är klickbart */
 }
 
-/* ---- Hover-effekt ---- */
+/* Hover-effekt */
+
 .sektion:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 18px rgba(0,0,0,0.2);
-
 }
+
 .sektion:hover h2 {
   background-color: #264b4b;  /* lite mörkare än knappen */
   cursor: pointer;
@@ -344,8 +362,25 @@ nav a:hover {
 .sektion p {
   font-size: 17px;
   line-height: 1.4;
-  color: #333;
+  color: #444;
  }
+
+.card-readmore {
+  color: darkslategrey;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 5px;
+  display: inline-block;
+  letter-spacing: 0.3px;
+  transition: color 0.2s ease;
+}
+
+.card-readmore:hover {
+  color: darkgoldenrod;
+  text-decoration: underline;
+}
+
+
 /* ========== SIDOPANEL ========== */
 
 .friendpanel {
@@ -396,25 +431,21 @@ nav a:hover {
 }
 
 /* Toggle-knappen – lilla ikonen */
-.friendpanel-toggle {
 
+.friendpanel-toggle {
   position: fixed;
   top: 50%;
   right: -60px; /* gör så knappen sticker ut men inte klipps */
-
   transform: translateY(-50%) rotate(-90deg);
-
   background: darkslategrey;
   color: white;
   padding: 14px 22px;
   border-radius: 18px 18px 0 0;
   cursor: pointer;
   z-index: 9999;
-
   font-size: 20px;
   font-weight: 400;
   white-space: nowrap; /* viktig! gör att texten inte bryts */
-
 }
 
 .friendpanel-toggle:hover {
@@ -422,6 +453,7 @@ nav a:hover {
 }
 
  /* x-stägning kanppen */
+
 .friendpanel-close {
   background: transparent;
   border: none;
@@ -432,52 +464,26 @@ nav a:hover {
   color: darkslategrey;   /* matchar panelens färger */
   opacity: 0.85;          /* samma look som citat-bubblan */
   transition: opacity 0.2s ease;
-
-/* ================== FOOTER ================== */
-.main-footer {
-
- width: 100%;                 /* gör den fullbredd */
- background-color: white;
- padding: 30px;
- margin-top: 80px;
- border-top: 2px solid #ccc;
- text-align: center;
- font-size: 18px;
- box-sizing: border-box;      /* viktigt för att paddingen inte expanderar */
-
 }
 
+/* ================== FOOTER ================== */
 
+.main-footer {
+  width: 100%;
+  background: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 80px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.main-footer p {
+  max-width: 600px;
+  margin: 0 auto 10px auto;
+  color: #264653;
+  font-size: 20px;
+  line-height: 1.5;            /* Ger luft mellan raderna */
+  font-weight: normal;
+}
 
 /*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
 
