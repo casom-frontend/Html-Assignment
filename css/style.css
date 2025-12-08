@@ -1,488 +1,465 @@
 /* ================== SIDANS GRUND ================== */
 
 body {
-  background-color: rgba(211, 211, 211, 0.5);
-  margin: 0;
-  font-family: Inter, sans-serif;
+  background-color: rgba(211, 211, 211, 0.5);   /* ljusgrå bakgrund med transparens */
+  margin: 0;                                    /* tar bort browser-standardmarginal */
+  font-family: Inter, sans-serif;               /* typsnitt för hela sidan */
 }
 
 
 /* ================== HEADER ================== */
 
 .main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  display: flex;                                /* placerar logga och meny på samma rad */
+  justify-content: space-between;               /* logga vänster, meny höger */
+  align-items: center;                          /* centrerar innehåll vertikalt */
+  padding: 20px 40px;                           /* luft runt headerinnehåll */
+  background-color: white;                      /* vit bakgrund */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);       /* lätt skugga under headern */
+  position: sticky;                             /* headern fastnar vid scroll */
+  top: 0;                                       /* fastnar högst upp */
+  z-index: 100;                                 /* ligger över andra element */
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: darkslategrey;
+  font-size: 24px;                              /* loggstorlek */
+  font-weight: bold;                            /* fet text */
+  color: darkslategrey;                         /* loggfärg */
 }
 
 nav a {
-  margin-left: 30px;
-  text-decoration: none;
-  color: darkslategrey;
-  font-size: 18px;
+  margin-left: 30px;                            /* avstånd mellan länkar */
+  text-decoration: none;                        /* tar bort underline */
+  color: darkslategrey;                         /* länkfärg */
+  font-size: 18px;                              /* länkstorlek */
 }
 
 nav a:hover {
-  color: darkgoldenrod;
+  color: darkgoldenrod;                         /* hoverfärg */
 }
+
 
 /* ================== HERO-SEKTION ================== */
 
 .hero {
-  position: relative;
-  height: 550px;
-  background-image: url("../Bosse3.jpeg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  padding-left: 75px;
+  position: relative;                           /* gör att tooltip och bubblor kan placeras */
+  height: 550px;                                /* höjd på hero */
+  background-image: url("../Bosse3.jpeg");      /* hero-bild */
+  background-size: cover;                       /* täcker hela ytan */
+  background-position: center;                  /* centrerar bilden */
+  display: flex;                                /* gör layouten flexibel */
+  align-items: center;                          /* centrerar innehållet */
+  padding-left: 75px;                           /* flyttar text inåt */
 }
 
 .hero-content h1 {
-  font-size: 65px;
-  color: white;
+  font-size: 65px;                              /* stor rubrik */
+  color: white;                                 /* vit text */
 }
 
 .hero-content p {
-  font-size: 26px;
-  color: white;
+  font-size: 26px;                              /* undertitelstorlek */
+  color: white;                                 /* vit text */
 }
 
 .hero-content {
-  position: relative;
+  position: relative;                           /* behövs för tooltip-position */
 }
 
-/* Nos knappen */
+
+/* ================== NOSA-KNAPP ================== */
 
 .hero-btn {
-  position: relative;
-  background-color: darkslategrey;
-  color: white;
-  padding: 30px 55px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 25px;
-  margin-top: 70px;
+  position: relative;                           /* tooltip placeras relativt knappen */
+  background-color: darkslategrey;              /* knappfärg */
+  color: white;                                  /* textfärg */
+  padding: 30px 55px;                           /* stor knapp */
+  border: none;                                 /* ingen kant */
+  border-radius: 8px;                           /* rundade hörn */
+  cursor: pointer;                              /* klickbar */
+  font-size: 25px;                              /* textstorlek */
+  margin-top: 70px;                             /* avstånd från text */
 }
 
 .hero-btn:hover {
- transform: translateY(-3px);
+  transform: translateY(-3px);                   /* liten lyft-animation vid hover */
 }
 
-/* Tooltip */
+
+/* ================== TOOLTIP ================== */
 
 .nose-tooltip {
-  position: absolute;
-  bottom: 100%;
-  left: 68%;
-  transform: translateX(-50%) translateY(-10px);
-  background: rgba(240,240,240,0.9);
-  color: #444;
-  padding: 12px 18px;
-  border-radius: 6px;
-  font-size: 15px;
-  opacity: 0;
-  transition: opacity 0.25s;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-  width: 250px;
-  max-width: 500px;           /* Tillåter avlång form */
+  position: absolute;                           /* placeras i förhållande till knappen */
+  bottom: 100%;                                 /* ovanför knappen */
+  left: 68%;                                    /* horisontell placering */
+  transform: translateX(-50%) translateY(-10px); /* finjustering */
+  background: rgba(240,240,240,0.9);            /* ljus bakgrund */
+  color: #444;                                  /* textfärg */
+  padding: 12px 18px;                           /* inre luft */
+  border-radius: 6px;                           /* rundade hörn */
+  font-size: 15px;                              /* textstorlek */
+  opacity: 0;                                   /* göms som standard */
+  transition: opacity 0.25s;                    /* fade-in effekt */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);        /* skugga */
+  width: 250px;                                 /* bredd */
+  max-width: 500px;                             /* maxbredd */
 }
 
 .hero-btn:hover .nose-tooltip {
-  opacity: 1;
+  opacity: 1;                                   /* visas vid hover */
 }
 
-/* Stäng-kryss i visdomsrutan */
+
+/* ================== STÄNG-KRYSS I VISDOMSRUTA ================== */
 
 .close-msg {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-  line-height: 1;
-  opacity: 0.85;
-  transition: opacity 0.2s;
+  position: absolute;                            /* placeras i rutan */
+  top: 8px;                                      /* avstånd uppåt */
+  right: 12px;                                   /* avstånd höger */
+  font-size: 20px;                               /* storlek */
+  font-weight: bold;                             /* fet */
+  color: white;                                  /* färg */
+  cursor: pointer;                               /* klickbar */
+  opacity: 0.85;                                 /* lätt transparens */
 }
 
 .close-msg:hover {
-  opacity: 1;
+  opacity: 1;                                    /* full synlighet vid hover */
 }
 
-/* ================== BOSSE-VISDOM BREDVID KNAPP ================== */
 
- /* Container runt knappen och bubblan */
- .nose-container {
-   position: relative;
-   display: inline-block; /* Allt håller ihop */
- }
+/* ================== BOSSE-VISDOM / PRATBUBBLA ================== */
 
- /* Själva pratbubblan */
+.nose-container {
+  position: relative;                             /* bubblan placeras härifrån */
+  display: inline-block;                          /* håller ihop layouten */
+}
+
 .bosse-message {
-  display: none;
-  position: absolute;
-  top: calc(100% + 12px);  /* hamna under knappen */
-  left: 0;                 /* I linje med knappen */
-  width: 740px;
-  min-height: 10px;
-  background: #ffa726;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 10px;
-  font-size: 16px;
-  line-height: 1.2;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  z-index: 999;
- }
-
-/*texten inne i pratbubblan*/
-.bosse-message p {
-  text-align: center;
-
+  display: none;                                  /* gömd tills JS visar */
+  position: absolute;                             /* placeras under knappen */
+  top: calc(100% + 12px);                         /* exakt under knappen */
+  left: 0;                                        /* i linje */
+  width: 740px;                                   /* bubblbredd */
+  background: #ffa726;                            /* orange bakgrund */
+  color: white;                                   /* textfärg */
+  padding: 8px 15px;                              /* inre luft */
+  border-radius: 10px;                            /* rundade hörn */
+  font-size: 16px;                                /* textstorlek */
+  line-height: 1.2;                               /* radavstånd */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);         /* skugga */
+  z-index: 999;                                   /* ligger över annat */
 }
 
-/*citat tecken*/
+.bosse-message p {
+  text-align: center;                             /* centrerad text */
+}
+
 .bosse-message p::before {
-  content: "“";
+  content: "“";                                   /* vänster citattecken */
   font-size: 22px;
-  margin-right: 4px;
 }
 
 .bosse-message p::after {
-  content: "”";
+  content: "”";                                   /* höger citattecken */
   font-size: 22px;
-  margin-left: 4px;
 }
 
-/* svansen */
 .bosse-message::before {
-  content: "";
+  content: "";                                    /* pratbubblans “svans” */
   position: absolute;
   top: -12px;
-  left: 25px; /* pekar upp mot knappen */
+  left: 25px;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
   border-bottom: 12px solid #ffa726;
 }
 
+
 /* ================== OM BOSSE ================== */
+
 .bosses-info {
-  max-width: 1720px;
-  margin: 50px auto;
-  padding: 0 20px;
+  max-width: 1720px;                              /* maxbredd */
+  margin: 50px auto;                              /* centrerar */
+  padding: 0 20px;                                /* sidluft */
 }
 
 .bosses-info h2 {
-  font-size: 35px;
-  margin-bottom: 20px;
-  color: darkslategrey;
-
+  font-size: 35px;                                /* rubrikstorlek */
+  margin-bottom: 20px;                            /* avstånd nedåt */
+  color: darkslategrey;                           /* rubrikfärg */
 }
 
 .bosses-info p {
-  font-size: 22px;
-  line-height: 1.5;
-  margin-bottom: 20px;
-  color: #444;
-
+  font-size: 22px;                                /* brödtextstorlek */
+  line-height: 1.5;                               /* radavstånd */
+  margin-bottom: 20px;                            /* avstånd mellan stycken */
+  color: #444;                                    /* textfärg */
 }
+
 .read-more-info {
-  color: darkslategrey;
-  cursor: pointer;
-  font-weight: 500;
-  margin-top: 5px;
-  display: inline-block;      /* gör att hover känns naturlig */
-  letter-spacing: 0.3px;      /* lite elegantare */
-  transition: color 0.2s ease;
+  color: darkslategrey;                           /* länkfärg */
+  cursor: pointer;                                /* klickbar */
+  font-weight: 500;                               /* lite fetare */
+  margin-top: 5px;                                /* avstånd uppåt */
+  display: inline-block;                          /* stabil hover */
+  letter-spacing: 0.3px;                          /* luftigare text */
+  transition: color 0.2s ease;                    /* mjuk färgändring */
 }
 
 .read-more-info:hover {
-  color: darkgoldenrod;        /* samma ton som din hover i menyn */
-  text-decoration: underline;  /* ännu tydligare att det är klickbart */
+  color: darkgoldenrod;                           /* hoverfärg */
+  text-decoration: underline;                     /* underline vid hover */
 }
 
 
-/* ======= HORISONELL LINJE  ====== */
+/* ====== HORISONELL AVDELARE ====== */
+
 .section-divider {
-  height: 2px;
-  background-color: rgba(128, 128, 128, 0.16);
-  width: 1720px;
-  margin: 40px auto;
+  height: 2px;                                     /* tunn linje */
+  background-color: rgba(128, 128, 128, 0.16);     /* ljus färg */
+  width: 1720px;                                   /* bredd */
+  margin: 40px auto;                               /* centrerad */
 }
 
 
 /* ================== HUNDFAKTA ================== */
 
-/* Yttre layout / placerar sektionen på sidan  */
 .hundfakta-section {
-  max-width: 1729px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 1729px;                               /* maxbredd */
+  margin: 40px auto;                               /* centrerad */
+  padding: 0 20px;                                 /* sidluft */
 }
 
-
-/* Rubriken "Hundfakta" ovanför boxen  */
 .hundfakta-heading {
-  font-size: 28px;
-  font-weight: 700;
-  color: darkslategrey;
-  margin-bottom: 35px;
+  font-size: 28px;                                 /* rubrik */
+  font-weight: 700;                                /* fet */
+  color: darkslategrey;                            /* färg */
+  margin-bottom: 35px;                             /* avstånd */
 }
 
-
-/*  Själva vita boxen (kortet med filter + fakta)  */
 .hundfakta-box {
-  background: #ffffff;
-  padding: 60px;
-  border-radius: 4px;    /* matchar knappar och sidopanel */
-  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-  border: 1px solid #e5e5e5;
+  background: #ffffff;                             /* vit box */
+  padding: 60px;                                   /* inre luft */
+  border-radius: 4px;                              /* rundning */
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);          /* skugga */
+  border: 1px solid #e5e5e5;                       /* tunn ram */
 }
 
-
-/* Beskrivande text ovanför dropdown  */
 .hundfakta-label {
-  display: block;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #444;
+  display: block;                                  /* egen rad */
+  font-size: 20px;                                 /* textstorlek */
+  font-weight: 600;                                /* halvfet */
+  margin-bottom: 10px;                             /* avstånd */
+  color: #444;                                     /* textfärg */
 }
-
-
-/* Dropdown-fältet (select) */
 
 .hundfakta-select {
-  width: 100%;
-  box-sizing: border-box;         /* padding ingår i totalbredden */
-  padding: 14px 18px;             /* NORMAL höjd – ser modern ut */
-  border-radius: 8px;             /* samma rundning som boxen */
-  border: 1px solid #ccc;
-  background: #fafafa;
-  font-size: 17px;                /* större och luftigare text */
-  appearance: auto;               /* visar pilen */
-  margin-bottom: 10px;            /* avstånd till resultat-rutan */
-  color: #444;
+  width: 100%;                                     /* fyller boxen */
+  box-sizing: border-box;                          /* inkluderar padding */
+  padding: 14px 18px;                              /* stor klickyta */
+  border-radius: 8px;                              /* rundning */
+  border: 1px solid #ccc;                          /* tunn ram */
+  background: #fafafa;                             /* ljus bakgrund */
+  font-size: 17px;                                 /* textstorlek */
+  appearance: auto;                                /* standardpil */
+  margin-bottom: 10px;                             /* avstånd */
+  color: #444;                                     /* textfärg */
 }
-
-
-/* Rutan där hundfakta-text visas*/
 
 .hundfakta-result {
-  padding: 18px 22px;
-  background: #f8f8f8;
-  border-radius: 8px;
-  border: 1px solid #e2e2e2;
-  font-size: 20px;        /* samma som citatbubblan */
-  font-weight: 400;       /* tunnare – ser nätt ut */
-  line-height: 1.4;       /* samma luft som pratbubblan */
-  color: darkslategrey;
-  text-align: center;     /* centrera, som bubblan */
-  width: 100%;              /* var 98% – nu blir den exakt lika lång som select */
-  box-sizing: border-box;
-  margin-top: 10px;         /* centreras automatiskt nu */
+  padding: 18px 22px;                              /* inre luft */
+  background: #f8f8f8;                             /* ljusgrå bakgrund */
+  border-radius: 8px;                              /* rundade hörn */
+  border: 1px solid #e2e2e2;                       /* tunn ram */
+  font-size: 20px;                                 /* textstorlek */
+  line-height: 1.4;                                /* radavstånd */
+  color: darkslategrey;                            /* textfärg */
+  text-align: center;                              /* centrerad text */
+  width: 100%;                                     /* fyller bredd */
+  box-sizing: border-box;                          /* stabil bredd */
+  margin-top: 10px;                                /* avstånd från dropdown */
 }
+
 
 /* ================== BLOGGKORT ================== */
 
 #blogg {
-  max-width: 1720px;
-  margin: 20px auto;
-  font-size: 28px;
-  color: darkslategrey;
+  max-width: 1720px;                               /* sidbredd */
+  margin: 20px auto;                               /* centrerad */
+  font-size: 28px;                                 /* rubrikstorlek */
+  color: darkslategrey;                            /* rubrikfärg */
 }
 
 .sektioner {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  padding: 20px;
+  display: flex;                                   /* lägger korten på rad */
+  gap: 40px;                                       /* avstånd mellan kort */
+  justify-content: center;                         /* centrerar dem */
+  padding: 20px;                                   /* yttre luft */
 }
 
 .sektion {
-  background-color: white;
-  width: 500px;
-  height: 600px;
-  border-radius: 8px;
-  padding: 25px;
-  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
-  transition: all 0.25s ease;      /* behövs för smooth hover */
-  cursor: pointer;                 /* visar att kortet är klickbart */
+  background-color: white;                         /* vit kortbakgrund */
+  width: 500px;                                    /* kortbredd */
+  height: 600px;                                   /* höjd */
+  border-radius: 8px;                              /* rundade hörn */
+  padding: 25px;                                   /* inre luft */
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);           /* skugga */
+  transition: all 0.25s ease;                      /* hover-animation */
+  cursor: pointer;                                 /* klickbar */
 }
 
-/* Hover-effekt */
-
 .sektion:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 18px rgba(0,0,0,0.2);
+  transform: translateY(-6px);                     /* lyfter kortet vid hover */
+  box-shadow: 0 12px 18px rgba(0,0,0,0.2);          /* starkare skugga */
 }
 
 .sektion:hover h2 {
-  background-color: #264b4b;  /* lite mörkare än knappen */
-  cursor: pointer;
+  background-color: #264b4b;                       /* mörkare ton vid hover */
 }
 
 .sektion img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
+  width: 100%;                                     /* fyller kortets bredd */
+  height: 300px;                                   /* höjd */
+  object-fit: cover;                               /* beskär bild snyggt */
 }
 
 .sektion h2 {
- display: inline-block;        /* gör att bakgrunden formar sig runt texten */
- background-color:darkslategrey;
- color: white;
- padding: 10px 16px;           /* samma känsla som knappen – men mindre */
- border-radius: 6px;           /* matchar knappens rundning */
- font-size: 18px;
-  font-weight: normal;
+  display: inline-block;                           /* bakgrund formar sig runt texten */
+  background-color: darkslategrey;                 /* färg */
+  color: white;                                    /* textfärg */
+  padding: 10px 16px;                              /* inre luft */
+  border-radius: 6px;                              /* rundade hörn */
+  font-size: 18px;                                 /* textstorlek */
+  font-weight: normal;                             /* normal vikt */
 }
 
 .sektion h3 {
-  font-size: 18px;
-  color: darkslategrey;
+  font-size: 18px;                                 /* underrubrik */
+  color: darkslategrey;                            /* färg */
 }
 
 .sektion p {
-  font-size: 17px;
-  line-height: 1.4;
-  color: #444;
- }
+  font-size: 17px;                                 /* brödtext */
+  line-height: 1.4;                                /* radavstånd */
+  color: #444;                                     /* textfärg */
+}
 
 .card-readmore {
-  color: darkslategrey;
-  cursor: pointer;
-  font-weight: 500;
-  margin-top: 5px;
-  display: inline-block;
-  letter-spacing: 0.3px;
-  transition: color 0.2s ease;
+  color: darkslategrey;                            /* länkliknande färg */
+  cursor: pointer;                                 /* klickbar */
+  font-weight: 500;                                /* halvfet */
+  margin-top: 5px;                                 /* avstånd */
+  display: inline-block;                           /* bra hoverbeteende */
+  letter-spacing: 0.3px;                           /* luftigare text */
+  transition: color 0.2s ease;                     /* mjuk övergång */
 }
 
 .card-readmore:hover {
-  color: darkgoldenrod;
-  text-decoration: underline;
+  color: darkgoldenrod;                            /* hoverfärg */
+  text-decoration: underline;                      /* underline vid hover */
 }
 
 
-/* ========== SIDOPANEL ========== */
+/* ================== SIDOPANEL ================== */
 
 .friendpanel {
-  position: fixed;
-  top: 50%;
-  right: -350px; /* gömd position */
-  transform: translateY(-50%);
-  width: 320px;
-  background: white;
-  padding: 25px;
-  border-radius: 18px 0 0 18px;
-  box-shadow: -4px 0 18px rgba(0,0,0,0.2);
-  transition: right 0.35s ease;
-  z-index: 9999;
+  position: fixed;                                 /* fast position vid scroll */
+  top: 50%;                                        /* vertikalt centrerad */
+  right: -350px;                                   /* gömd utanför skärmen */
+  transform: translateY(-50%);                     /* centrerar på höjden */
+  width: 320px;                                    /* panelbredd */
+  background: white;                               /* bakgrund */
+  padding: 25px;                                   /* inre luft */
+  border-radius: 18px 0 0 18px;                    /* rundning vänster */
+  box-shadow: -4px 0 18px rgba(0,0,0,0.2);         /* skugga från sidan */
+  transition: right 0.35s ease;                    /* smooth slide-in */
+  z-index: 9999;                                   /* ovanpå allt */
 }
 
 .friendpanel.open {
-  right: 0; /* panel visas */
+  right: 0;                                        /* visas genom att åka in */
 }
 
 .friendpanel h3 {
-  margin-top: 0;
-  color: darkslategrey;
-  font-size: 22px;
-  text-align: center;
+  margin-top: 0;                                   /* tar bort top-marginal */
+  color: darkslategrey;                            /* rubrikfärg */
+  font-size: 22px;                                 /* storlek */
+  text-align: center;                              /* centrerad */
 }
 
 .friendpanel p {
-  font-size: 16px;
-  color: #444;
-  line-height: 1.5;
+  font-size: 16px;                                 /* textstorlek */
+  color: #444;                                     /* färg */
+  line-height: 1.5;                                /* radavstånd */
 }
 
 .friendpanel-btn {
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-  padding: 25px 15px;
-  background: #ffa726;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
+  display: block;                                  /* egen rad */
+  text-align: center;                              /* centrerad */
+  margin-top: 15px;                                /* avstånd uppåt */
+  padding: 25px 15px;                              /* stor klickyta */
+  background: #ffa726;                             /* färg */
+  color: white;                                    /* textfärg */
+  text-decoration: none;                           /* ingen underline */
+  border-radius: 10px;                             /* rundade hörn */
+  font-weight: bold;                               /* fet text */
 }
 
 .friendpanel-btn:hover {
-  background: #ff8c00;
+  background: #ff8c00;                             /* mörkare vid hover */
 }
 
-/* Toggle-knappen – lilla ikonen */
-
 .friendpanel-toggle {
-  position: fixed;
-  top: 50%;
-  right: -60px; /* gör så knappen sticker ut men inte klipps */
-  transform: translateY(-50%) rotate(-90deg);
-  background: darkslategrey;
-  color: white;
-  padding: 14px 22px;
-  border-radius: 18px 18px 0 0;
-  cursor: pointer;
-  z-index: 9999;
-  font-size: 20px;
-  font-weight: 400;
-  white-space: nowrap; /* viktig! gör att texten inte bryts */
+  position: fixed;                                 /* fast position */
+  top: 50%;                                        /* centrerad */
+  right: -60px;                                    /* sticker ut från höger */
+  transform: translateY(-50%) rotate(-90deg);      /* vänd 90° */
+  background: darkslategrey;                       /* färg */
+  color: white;                                    /* textfärg */
+  padding: 14px 22px;                              /* storlek */
+  border-radius: 18px 18px 0 0;                    /* rundning */
+  cursor: pointer;                                 /* klickbar */
+  z-index: 9999;                                   /* ovanpå allt */
+  font-size: 20px;                                 /* textstorlek */
+  font-weight: 400;                                /* normal vikt */
+  white-space: nowrap;                             /* hindrar radbrytning */
 }
 
 .friendpanel-toggle:hover {
-  background: #2f5855;
+  background: #2f5855;                             /* hoverfärg */
 }
-
- /* x-stägning kanppen */
 
 .friendpanel-close {
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  float: right;
-  color: darkslategrey;   /* matchar panelens färger */
-  opacity: 0.85;          /* samma look som citat-bubblan */
-  transition: opacity 0.2s ease;
+  background: transparent;                         /* ingen bakgrund */
+  border: none;                                    /* ingen ram */
+  font-size: 22px;                                 /* storlek */
+  font-weight: bold;                               /* fet */
+  cursor: pointer;                                 /* klickbar */
+  float: right;                                    /* placeras till höger */
+  color: darkslategrey;                            /* färg */
+  opacity: 0.85;                                   /* lite transparens */
+  transition: opacity 0.2s ease;                   /* mjuk hover */
 }
+
 
 /* ================== FOOTER ================== */
 
 .main-footer {
-  width: 100%;
-  background: white;
-  padding: 40px 20px;
-  text-align: center;
-  margin-top: 80px;
+  width: 100%;                                     /* fyller sidan */
+  background: white;                               /* bakgrundsfärg */
+  padding: 40px 20px;                              /* inre luft */
+  text-align: center;                              /* centrerad text */
+  margin-top: 80px;                                /* avstånd till sektionen ovanför */
 }
 
 .main-footer p {
-  max-width: 600px;
-  margin: 0 auto 10px auto;
-  color: #264653;
-  font-size: 20px;
-  line-height: 1.5;            /* Ger luft mellan raderna */
-  font-weight: normal;
+  max-width: 600px;                                /* smalare textbredd */
+  margin: 0 auto 10px auto;                        /* centrerad och med avstånd */
+  color: #264653;                                  /* textfärg */
+  font-size: 20px;                                 /* textstorlek */
+  line-height: 1.5;                                /* radavstånd */
+  font-weight: normal;                             /* normal vikt */
 }
 
 /*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */

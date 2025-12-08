@@ -8,7 +8,7 @@ const bosseMessage = document.getElementById("bosseMessage"); // själva popup-r
 const closeBosseMsg = document.getElementById("closeBosseMsg"); // X-knappen för att stänga rutan
 const wisdomText = document.getElementById("wisdomText");   // texten där visdomsordet ska visas
 
-// En lista med olika visdomsord.När användaren klickar slumpas ett av dem fram.
+// En lista med olika visdomsord. När användaren klickar slumpas ett av dem fram.
 const bosseWisdoms = [
   "Ekorrar är luftburna terrorister. Min enda uppgift är att hålla dem på marken, där de hör hemma.",
   "Våga nosa på det okända – där gömmer sig godbitarna.",
@@ -22,9 +22,7 @@ const bosseWisdoms = [
   "Allt blir bättre med ostbågar. Det är vetenskap."
 ];
 
-// När man klickar på "Nosa här!"-knappen körs denna funktion.
-// addEventListener("click", () => { ... })
-// betyder: “När användaren klickar på knappen, kör allt som ligger inuti klamrarna { }.”
+// När man klickar på "Nosa här!"-knappen körs denna funktion. “När användaren klickar på knappen, kör allt som ligger inuti klamrarna { }.”
 noseBtn.addEventListener("click", () => {
 
   // Startar sniff-ljudet från början och spelar det
@@ -32,9 +30,6 @@ noseBtn.addEventListener("click", () => {
   sniffSound.play();
 
   // Slumpar ett visdomsord från listan ovan
-  // Math.random() ger ett tal mellan 0–1
-  // Math.floor() rundar ner till heltal
-  // Kombinationen ger ett slumpmässigt index från listan
   const randomIndex = Math.floor(Math.random() * bosseWisdoms.length);
   wisdomText.textContent = bosseWisdoms[randomIndex];
 
@@ -103,7 +98,7 @@ factFilter.addEventListener("change", () => {
       // När vi får ett svar måste vi först göra om det till JSON-format
       .then(res => res.json())
 
-      // här får vi själva datan från API:t dvs den färdiga json datan
+      // här får vi den färdiga JSON-datan från API:t som vi nu kan använda
       .then(data => {
 
       // plockar ut faktatexten från API-datan
@@ -148,15 +143,13 @@ const fpClose = document.querySelector(".friendpanel-close");   // X-knappen fö
 // När man klickar på öppna-panel-knappen
 fpToggle.addEventListener("click", () => {
 
-  // classList.add("open") betyder:“Lägg till klassen 'open' på detta element.”
-  // I CSS styr denna klass att panelen glider in i bild.
+  // classList.add("open") lägger till klassen 'open'. I CSS gör denna klass att panelen glider in i bild.
   fpPanel.classList.add("open");
 });
 
 // När man klickar på X-knappen i panelen
 fpClose.addEventListener("click", () => {
 
-  // classList.remove("open") betyder:“Ta bort klassen 'open' från elementet.”
-  // Då stängs panelen igen.
+  // classList.remove("open") tar bort klassen 'open' så panelen stängs igen
   fpPanel.classList.remove("open");
 });

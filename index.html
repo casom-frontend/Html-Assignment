@@ -2,24 +2,24 @@
 <html lang="sv">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"> <!-- Gör så att åäö visas korrekt -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Gör sidan mobilvänlig -->
+
   <title>Bosses Tassavtryck</title>
 
-  <!-- Kopplar in CSS-filen -->
+  <!-- Länkar till webbplatsens CSS-stilmall -->
   <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
 <!-- ================= HEADER ================= -->
 
-<header class="main-header">
+<header class="main-header"> <!-- Sidans toppmeny med logga och navigation -->
 
-  <h3 class="logo"> 🐾 Bosses Tassavtryck</h3>
+  <h3 class="logo"> 🐾 Bosses Tassavtryck</h3> <!-- Logotypen -->
 
-  <nav>
+  <nav> <!-- Navigationsmenyn -->
     <a href="#hem">Hem</a>
     <a href="#om-mig">Om Mig</a>
     <a href="#blogg">Blogg</a>
@@ -30,41 +30,46 @@
 
 
 <!-- ================= HERO-SEKTION ================= -->
-<section class="hero">
 
-  <div class="hero-content">
+<section class="hero"> <!-- Stor toppsektion med bakgrundsbild, rubrik och knapp -->
 
-    <h1>Välkommen till mitt revir! </h1>
-    <p>Tankegångar från en världserövrare på fyra tassar.</p>
+  <div class="hero-content"> <!-- Håller ihop text och knapp -->
 
-    <div class="nose-container">
+    <h1>Välkommen till mitt revir! </h1> <!-- Huvudrubrik -->
+    <p>Tankegångar från en världserövrare på fyra tassar.</p> <!-- Underrubrik -->
 
+    <div class="nose-container"> <!-- Wrapper för knappen och visdomsbubblan -->
+
+      <!-- Knappen som triggar ljud och Bosse-visdom -->
       <button id="noseBtn" class="hero-btn">Nosa här!
+        <!-- Tooltip som visas vid hover -->
         <span class="nose-tooltip">Klicka för att få dagens visdom från Bosse</span>
       </button>
 
+      <!-- Pratbubbla som visar slumpat visdomsord -->
       <div id="bosseMessage" class="bosse-message">
-        <span id="closeBosseMsg" class="close-msg">×</span>
-        <p id="wisdomText"></p>
+        <span id="closeBosseMsg" class="close-msg">×</span> <!-- Stäng-knapp -->
+        <p id="wisdomText"></p> <!-- Visdomstext som JS skriver in -->
       </div>
 
     </div>
 
-    <audio id="sniffSound" src="public/frequent-dog-sniffing.mp3"></audio> <!-- SNIFF LJUD -->
+    <!-- Ljud som spelas vid klick -->
+    <audio id="sniffSound" src="public/frequent-dog-sniffing.mp3"></audio>
 
   </div>
 
 </section>
 
+
 <!-- ================= OM BOSSE ================= -->
-<br>
-<br>
-<section class="bosses-info">
+
+<section class="bosses-info" id="om-mig"> <!-- Sektion som presenterar Bosse -->
   <h2>Bosses värld – min blogg om livet på fyra tassar</h2>
-  <br>
+
   <p>
+    <!-- Presentationstext om Bosse och bloggens syfte -->
     Hej!
-    <br>
     <br>
     Jag är Bosse – en cockerspaniel på fem vårar med stora öron, större personlighet och ännu större åsikter om livet.
     När jag inte jagar mystiskt försvunna strumpor eller ligger och solar på köksgolvet, ägnar jag mig åt att dela mina reflektioner här på bloggen.
@@ -72,26 +77,29 @@
     Ibland klokt, ibland knasigt, alltid med glimten i ögat. Jag har mycket att säga, och noll planer på att vara tyst om det.
     Min matte påstår att jag är "lite för smart för mitt eget bästa". Jag föredrar att kalla det naturlig begåvning.
   </p>
-  <p class="read-more-info">Läs mer…</p>
+
+  <p class="read-more-info">Läs mer…</p> <!-- Länk för mer info -->
 </section>
 
-<!-- ====== HORISONELL LINJE ====== -->
-
+<!-- Horisontell avdelare mellan sektioner -->
 <div class="section-divider"></div>
 
-<!-- ================= HUNDFAKTA================= -->
 
-<section class="hundfakta-section">
+<!-- ================= HUNDFAKTA ================= -->
 
-  <h2 class="hundfakta-heading">Hundfakta</h2>
+<section class="hundfakta-section" id="hundfakta"> <!-- Sektion med dropdown + facts -->
 
-  <div class="hundfakta-box">
+  <h2 class="hundfakta-heading">Hundfakta</h2> <!-- Rubrik -->
 
+  <div class="hundfakta-box"> <!-- Vit box som innehåller allt i hundfakta -->
+
+    <!-- Label som beskriver dropdown-menyn -->
     <label for="factFilter" class="hundfakta-label">
-      Nyfiken på hundfakta? Jag bjuder gärna på lite klokskap – både officiell och egenpåhittad. 🐾 <br>
-      <br>
+      Nyfiken på hundfakta? Jag bjuder gärna på lite klokskap – både officiell och egenpåhittad.
+      <br><br>
     </label>
 
+    <!-- Dropdown-meny där användaren väljer kategori -->
     <select id="factFilter" class="hundfakta-select">
       <option value="">Välj kategori...</option>
       <option value="api">Hundfakta</option>
@@ -99,105 +107,117 @@
       <option value="humor">Bosse fakta</option>
     </select>
 
+    <!-- Här skriver JavaScript ut faktan -->
     <div id="factOutput" class="hundfakta-result">
       Här kommer hundfakta att visas.
     </div>
 
   </div>
 
-    <br>
-    <br>
-
 </section>
 
-<!-- ====== HORISONELL LINJE ====== -->
-
+<!-- Avdelare igen -->
 <div class="section-divider"></div>
+
 
 <!-- ================= BLOGGKORT ================= -->
 
-<section class="blogginlägg">
+<section class="blogginlägg" id="blogg"> <!-- Håller hela bloggsektionen -->
 
-<h2 id="blogg">Blogginlägg</h2>
+  <h2 id="blogg">Blogginlägg</h2>
 
-<div class="sektioner">
+  <div class="sektioner"> <!-- Flexlayout med 3 bloggkort -->
 
-  <div class="sektion">
-    <img src="/img/leksak%202.jpeg" alt="Hundleksak">
-    <br>
-    <br>
-    <h2>Kritiska Recensioner</h2>
-    <br>
-    <h3>Jag Recenserar: Den Nya Leksaken (3/5 Tuggmotstånd)</h3>
-    <p>Leksak levererades till testanläggningen (vardagsrumsgolvet) med löften om "långvarig underhållning".
-     Efter en rigorös överlevnadsanalys, konstaterar jag att den försvann efter 12 minuter. Besvikelse.</p>
-    <p class="card-readmore">Läs mer…</p>
+    <!-- BLOGGKORT 1 -->
+    <div class="sektion"> <!-- Ett blogginläggskort -->
+      <img src="/img/leksak%202.jpeg" alt="Hundleksak"> <!-- Kortets bild -->
+
+      <h2>Kritiska Recensioner</h2> <!-- Kategorirubrik -->
+
+      <h3>Jag Recenserar: Den Nya Leksaken (3/5 Tuggmotstånd)</h3> <!-- Bloggtitel -->
+
+      <p>
+        <!-- Bloggtext / ingress -->
+        Leksak levererades till testanläggningen (vardagsrumsgolvet) med löften om "långvarig underhållning".
+        Efter en rigorös överlevnadsanalys, konstaterar jag att den försvann efter 12 minuter. Besvikelse.
+      </p>
+
+      <p class="card-readmore">Läs mer…</p> <!-- Läs mer-länk -->
+    </div>
+
+
+    <!-- BLOGGKORT 2 -->
+    <div class="sektion">
+      <img src="/img/Bosse%20sover.jpeg" alt="Sovande Hund">
+
+      <h2>Livscoaching</h2>
+
+      <h3>Konsten Att Sova 18 Timmar Om Dagen: En Guide</h3>
+
+      <p>
+        Att uppnå 18 timmars daglig vila är inte bara en dröm; det är en livsstil.
+        Det handlar om att maximera njutningen, optimera återhämtningen och strategiskt positionera sig inför nästa matskål.
+      </p>
+
+      <p class="card-readmore">Läs mer…</p>
+    </div>
+
+
+    <!-- BLOGGKORT 3 -->
+    <div class="sektion">
+      <img src="/img/Bosse%20i%20parken.jpeg" alt="Hund i parken">
+
+      <h2>Äventyr och repotage</h2>
+
+      <h3>Topp 5 Lukter i Parken: Denna Vecka</h3>
+
+      <p>
+        Från betonade ekorrar till grillfett – en doftresa du sent ska glömma!
+        Jag guidar dig till veckans bästa fläckar.
+      </p>
+
+      <p class="card-readmore">Läs mer…</p>
+    </div>
+
   </div>
-
-  <div class="sektion">
-    <img src="/img/Bosse%20sover.jpeg" alt="Sovande Hund">
-    <br>
-    <br>
-    <h2>Livscoaching</h2>
-    <br>
-    <h3>Konsten Att Sova 18 Timmar Om Dagen: En Guide</h3>
-    <p>Att uppnå 18 timmars daglig vila är inte bara en dröm; det är en livsstil.
-      Det handlar om att maximera njutningen, optimera återhämtningen och strategiskt positionera sig inför nästa matskål.
-    </p>
-    <p class="card-readmore">Läs mer…</p>
-  </div>
-
-  <div class="sektion">
-    <img src="/img/Bosse%20i%20parken.jpeg" alt="Hund i parken">
-    <br>
-    <br>
-    <h2>Äventyr och repotage</h2>
-    <br>
-    <h3>Topp 5 Lukter i Parken: Denna Vecka</h3>
-    <p>Från betonade ekorrar till den helt unika doften av grillfett, en doftresa du sent ska glömma!
-      Med en exklusiv karta över de bästa fläckarna tar jag med er på en resa du sent kommer att glömma
-    </p>
-    <p class="card-readmore">Läs mer…</p>
-  </div>
-
-</div>
-
 </section>
 
-<br>
-<!-- ========== SIDOPANEL: BOSSES VÄNNER (TVÅ RUM & KÖK) ========== -->
 
+<!-- ================= SIDOPANEL ================= -->
+
+<!-- Knapp som öppnar sidopanelen -->
 <div class="friendpanel-toggle"> 🐾 Adoptera en vän</div>
 
+<div class="friendpanel"> <!-- Själva panelen som skjuts ut från höger -->
 
-<div class="friendpanel">
+  <button class="friendpanel-close">×</button> <!-- Stängknapp -->
 
-  <button class="friendpanel-close">×</button>
+  <h3>Mina vänner söker <br> två rum & kök ❤ </h3> <!-- Panelrubrik -->
 
-  <h3>Mina vänner söker <br> två rum & kök ❤ </h3>
-
-  <p>Alla hundar har inte haft lika mycket tur som jag.
+  <p>
+    Alla hundar har inte haft lika mycket tur som jag.
     På Hundstallet väntar mina kompisar på sin egen människoflock.
-    Har du en soffa, ett hjärta och lite leverpastej över?</p>
+    Har du en soffa, ett hjärta och lite leverpastej över?
+  </p>
 
-  <a href="https://hundstallet.se" target="_blank" class="friendpanel-btn">
-    Besök Hundstallet</a>
+  <!-- Länk till Hundstallet -->
+  <a href="https://hundstallet.se" target="_blank" class="friendpanel-btn">Besök Hundstallet</a>
 
 </div>
 
-  <br>
-  <br>
+
 <!-- ================= FOOTER ================= -->
 
-<footer class="main-footer">
-  <p><strong>  🐾 Bosses Tassavtryck</strong>
-  <br>
-  Webbplatsen drivs med 100% energi från Bosses eftermiddagslurar.
+<footer class="main-footer"> <!-- Sidans nedersta del -->
+  <p>
+    <strong>🐾 Bosses Tassavtryck</strong>
+    <br>
+    Webbplatsen drivs med 100% energi från Bosses eftermiddagslurar.
   </p>
 </footer>
 
-<!====Kopplar in JavaScript-filen ====>
 
+<!-- Kopplar in JavaScript-filen -->
 <script src="js/app.js"></script>
 
 </body>
