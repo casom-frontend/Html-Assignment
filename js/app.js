@@ -1,30 +1,30 @@
 
 // ================== BOSSE VISDOM ==================//
 
-// Hämtar element från HTML-sidan och sparar dem i variabler
-// så att JavaScript kan styra dem.
+// Hämtar element från HTML-sidan och sparar dem i variabler så att JavaScript kan styra dem.
 const sniffSound = document.getElementById("sniffSound");   // ljudet som spelar när man klickar
 const noseBtn = document.getElementById("noseBtn");         // "Nosa här!"-knappen
 const bosseMessage = document.getElementById("bosseMessage"); // själva popup-rutan med visdom
 const closeBosseMsg = document.getElementById("closeBosseMsg"); // X-knappen för att stänga rutan
 const wisdomText = document.getElementById("wisdomText");   // texten där visdomsordet ska visas
 
-// En lista (array) med olika visdomsord.
-// När användaren klickar slumpas ett av dem fram.
+// En lista med olika visdomsord.När användaren klickar slumpas ett av dem fram.
 const bosseWisdoms = [
   "Ekorrar är luftburna terrorister. Min enda uppgift är att hålla dem på marken, där de hör hemma.",
   "Våga nosa på det okända – där gömmer sig godbitarna.",
   "Livet är enklare om man äter först och oroar sig sen.",
-  "Ingen dag är dålig om man börjar den med en promenad.",
+  "Jag lyssnar inte på order, jag tar emot förslag.",
   "Mina öron är inte bara mjuka, de är utformade för att svepa rent köksgolvet efter middagen.",
-  "Var snäll. Och om du inte kan vara snäll, var fluffig.",
+  "Min sanna talang är att se ut som att jag svälter, 5 minuter efter middagen.",
   "Alla problem känns mindre efter en bra kli bakom örat.",
   "Om du inte får uppmärksamhet… lägg dig mitt i vägen.",
-  "Ta inte ansvar för ekorrar. De är hopplösa.",
+  "Mattes skor är inte skor. De är min officiella luktdagbok.",
   "Allt blir bättre med ostbågar. Det är vetenskap."
 ];
 
 // När man klickar på "Nosa här!"-knappen körs denna funktion.
+// addEventListener("click", () => { ... })
+// betyder: “När användaren klickar på knappen, kör allt som ligger inuti klamrarna { }.”
 noseBtn.addEventListener("click", () => {
 
   // Startar sniff-ljudet från början och spelar det
@@ -32,6 +32,9 @@ noseBtn.addEventListener("click", () => {
   sniffSound.play();
 
   // Slumpar ett visdomsord från listan ovan
+  // Math.random() ger ett tal mellan 0–1
+  // Math.floor() rundar ner till heltal
+  // Kombinationen ger ett slumpmässigt index från listan
   const randomIndex = Math.floor(Math.random() * bosseWisdoms.length);
   wisdomText.textContent = bosseWisdoms[randomIndex];
 
@@ -43,7 +46,10 @@ noseBtn.addEventListener("click", () => {
   noseBtn.style.backgroundColor = "#2f6f6f";
 
   // När man klickar på knappen ska tooltipen försvinna
+  // querySelector(".nose-tooltip") letar upp första elementet med den klassen
   const tooltip = document.querySelector(".nose-tooltip");
+
+  // opacity = 0 gör elementet helt osynligt (transparent)
   tooltip.style.opacity = 0;
 });
 
@@ -63,12 +69,17 @@ closeBosseMsg.addEventListener("click", () => {
 const factFilter = document.getElementById("factFilter");  // dropdown-menyn
 const factText = document.getElementById("factOutput");    // textfältet där fakta visas
 
-// Egna kategorier med fakta (ifall man inte använder API)
+// Egna kategorier med fakta (ifall man inte använder API:N)
+// localFacts är ett objekt med flera kategorier som innehåller listor (arrayer) av fakta.
 const localFacts = {
   cocker: [
     "Cocker spaniels har otroligt uttrycksfulla ögon.",
-    "Bosse hävdar att han kan tre språk: Svenska, Godis & Kyckling.",
-    "Cocker spaniels har mjuka öron – perfekta kuddar."
+    "Cockrar har ett av de vänligaste temperamenten bland sällskapshundar.",
+    "De är extremt sociala och vill alltid vara nära sin familj.",
+    "Rasen är känd för sina långa, mjuka öron som samlar dofter när de spårar.",
+    "De viftar med hela kroppen när de blir glada, inte bara svansen.",
+    "Cocker spaniels har ett starkt luktsinne och älskar nosarbete.",
+    "Rasen är ofta matmotiverad och älskar godis – perfekt för träning."
   ],
   humor: [
     "Ekorrar? Nej tack, säger Bosse.",
@@ -78,31 +89,47 @@ const localFacts = {
 };
 
 // Lyssnar på när användaren väljer något i dropdown-menyn
+// "change" betyder att funktionen körs varje gång användaren gör ett annat val.
 factFilter.addEventListener("change", () => {
+
   const value = factFilter.value; // värdet från dropdown (api, cocker, humor)
 
   // Om användaren väljer "api" ska extern hundfakta hämtas
   if (value === "api") {
-    fetch("https://dogapi.dog/api/v2/facts")  // hämtar data från API
-      .then(res => res.json())                // gör om svaret till JSON
+
+    // fetch hämtar data från internet.
+    fetch("https://dogapi.dog/api/v2/facts")
+
+      // När vi får ett svar måste vi först göra om det till JSON-format
+      .then(res => res.json())
+
+      // här får vi själva datan från API:t dvs den färdiga json datan
       .then(data => {
-        // plockar ut första faktan från API-svaret
+
+      // plockar ut faktatexten från API-datan
         const fact = data.data[0].attributes.body;
-        factText.textContent = fact;  // visar faktan på sidan
+
+        // visar faktan på sidan
+        factText.textContent = fact;
       })
+
       .catch(() => {
-        // om något går fel
-        factText.textContent = "Kunde inte hämta fakta just nu 🐾";
+
+        // Visas om API:t inte går att nå
+        factText.textContent = "Kunde inte hämta fakta just nu.";
       });
-    return; // stoppar funktionen här
+
+    return; // stoppar funktionen här så resten inte körs
   }
 
-  // Om användaren valde en av våra egna faktakategorier
+  // Om användaren valde en av mina egna faktakategorier
   if (localFacts[value]) {
+
+    // Slumpar en rad från rätt lista
     const randomFact =
       localFacts[value][Math.floor(Math.random() * localFacts[value].length)];
 
-    factText.textContent = randomFact; // visningsfaktan
+    factText.textContent = randomFact;
     return;
   }
 
@@ -120,10 +147,16 @@ const fpClose = document.querySelector(".friendpanel-close");   // X-knappen fö
 
 // När man klickar på öppna-panel-knappen
 fpToggle.addEventListener("click", () => {
-  fpPanel.classList.add("open"); // lägger till klassen "open" som visar panelen
+
+  // classList.add("open") betyder:“Lägg till klassen 'open' på detta element.”
+  // I CSS styr denna klass att panelen glider in i bild.
+  fpPanel.classList.add("open");
 });
 
 // När man klickar på X-knappen i panelen
 fpClose.addEventListener("click", () => {
-  fpPanel.classList.remove("open"); // tar bort klassen "open" → panelen stängs
+
+  // classList.remove("open") betyder:“Ta bort klassen 'open' från elementet.”
+  // Då stängs panelen igen.
+  fpPanel.classList.remove("open");
 });
