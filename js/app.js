@@ -22,7 +22,7 @@ const bosseWisdoms = [
   "Allt blir bättre med ostbågar. Det är vetenskap."
 ];
 
-// När man klickar på "Nosa här!"-knappen körs denna funktion. “När användaren klickar på knappen, kör allt som ligger inuti klamrarna { }.”
+// När man klickar på "Nosa här!"-knappen körs denna funktion.När användaren klickar på knappen, kör allt som ligger inuti klamrarna { }.
 noseBtn.addEventListener("click", () => {
 
   // Startar sniff-ljudet från början och spelar det
@@ -87,7 +87,7 @@ const localFacts = {
 // "change" betyder att funktionen körs varje gång användaren gör ett annat val.
 factFilter.addEventListener("change", () => {
 
-  const value = factFilter.value; // värdet från dropdown (api, cocker, humor)
+  const value = factFilter.value; // värdet från dropdown (api, cocker, Bosse)
 
   // Om användaren väljer "api" ska extern hundfakta hämtas
   if (value === "api") {

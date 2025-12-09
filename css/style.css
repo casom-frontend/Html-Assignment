@@ -42,10 +42,10 @@ nav a:hover {
 /* ================== HERO-SEKTION ================== */
 
 .hero {
-  position: relative;                           /* gör att tooltip och bubblor kan placeras */
+  position: relative;                           /* gör att tooltip och citatrutor kan placeras */
   height: 550px;                                /* höjd på hero */
   background-image: url("../Bosse3.jpeg");      /* hero-bild */
-  background-size: cover;                       /* täcker hela ytan */
+  background-size: cover;                       /* täcka hela ytan */
   background-position: center;                  /* centrerar bilden */
   display: flex;                                /* gör layouten flexibel */
   align-items: center;                          /* centrerar innehållet */
@@ -58,7 +58,7 @@ nav a:hover {
 }
 
 .hero-content p {
-  font-size: 26px;                              /* undertitelstorlek */
+  font-size: 26px;                              /* paragraf strl */
   color: white;                                 /* vit text */
 }
 
@@ -73,7 +73,7 @@ nav a:hover {
   position: relative;                           /* tooltip placeras relativt knappen */
   background-color: darkslategrey;              /* knappfärg */
   color: white;                                  /* textfärg */
-  padding: 30px 55px;                           /* stor knapp */
+  padding: 30px 55px;                           /* "luft" i knappen */
   border: none;                                 /* ingen kant */
   border-radius: 8px;                           /* rundade hörn */
   cursor: pointer;                              /* klickbar */
@@ -128,7 +128,7 @@ nav a:hover {
 }
 
 
-/* ================== BOSSE-VISDOM / PRATBUBBLA ================== */
+/* ================== BOSSE-VISDOM / PRATBUBBLA (citatruta) ================== */
 
 .nose-container {
   position: relative;                             /* bubblan placeras härifrån */
@@ -140,7 +140,7 @@ nav a:hover {
   position: absolute;                             /* placeras under knappen */
   top: calc(100% + 12px);                         /* exakt under knappen */
   left: 0;                                        /* i linje */
-  width: 740px;                                   /* bubblbredd */
+  width: 740px;                                   /* citatruta bredd */
   background: #ffa726;                            /* orange bakgrund */
   color: white;                                   /* textfärg */
   padding: 8px 15px;                              /* inre luft */
@@ -166,7 +166,7 @@ nav a:hover {
 }
 
 .bosse-message::before {
-  content: "";                                    /* pratbubblans “svans” */
+  content: "";                                    /* citatrutans “svans” */
   position: absolute;
   top: -12px;
   left: 25px;
@@ -277,14 +277,14 @@ nav a:hover {
   color: darkslategrey;                            /* textfärg */
   text-align: center;                              /* centrerad text */
   width: 100%;                                     /* fyller bredd */
-  box-sizing: border-box;                          /* stabil bredd */
+  box-sizing: border-box;                          /* Padding och border räknas in i bredden */
   margin-top: 10px;                                /* avstånd från dropdown */
 }
 
 
 /* ================== BLOGGKORT ================== */
 
-#blogg {
+#bloggar {
   max-width: 1720px;                               /* sidbredd */
   margin: 20px auto;                               /* centrerad */
   font-size: 28px;                                 /* rubrikstorlek */
@@ -418,7 +418,7 @@ nav a:hover {
   background: darkslategrey;                       /* färg */
   color: white;                                    /* textfärg */
   padding: 14px 22px;                              /* storlek */
-  border-radius: 18px 18px 0 0;                    /* rundning */
+  border-radius: 18px 18px 0 0;                    /* rundade hörn*/
   cursor: pointer;                                 /* klickbar */
   z-index: 9999;                                   /* ovanpå allt */
   font-size: 20px;                                 /* textstorlek */
@@ -448,7 +448,7 @@ nav a:hover {
 .main-footer {
   width: 100%;                                     /* fyller sidan */
   background: white;                               /* bakgrundsfärg */
-  padding: 40px 20px;                              /* inre luft */
+  padding: 40px 20px;                              /* inre "luft" */
   text-align: center;                              /* centrerad text */
   margin-top: 80px;                                /* avstånd till sektionen ovanför */
 }
@@ -459,7 +459,7 @@ nav a:hover {
   color: #264653;                                  /* textfärg */
   font-size: 20px;                                 /* textstorlek */
   line-height: 1.5;                                /* radavstånd */
-  font-weight: normal;                             /* normal vikt */
+  font-weight: normal;                             /* tjockleken på texten */
 }
 
 /*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
