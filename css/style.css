@@ -44,7 +44,7 @@ nav a:hover {
 .hero {
   position: relative;                           /* gör att tooltip och citatrutor kan placeras */
   height: 550px;                                /* höjd på hero */
-  background-image: url("../Bosse3.jpeg");      /* hero-bild */
+  background-image: url("../Public/Bosse3.jpeg");      /* hero-bild */
   background-size: cover;                       /* täcka hela ytan */
   background-position: center;                  /* centrerar bilden */
   display: flex;                                /* gör layouten flexibel */
